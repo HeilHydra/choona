@@ -1,0 +1,66 @@
+<ion-view>
+    <ion-content class="dark" ng-controller="playlistCtrl" style="background-color:#191919;">
+
+      <ion-refresher spinner="ripple" pulling-text="Pull to refresh" on-refresh="doRefresh()" ></ion-refresher>
+
+      <div class="headerimg"><img src="img/starbucks.jpeg"/></div>
+      <div class="plist" style="padding:0px;">
+      <!-- ignore until we get some real data streams
+        <a ng-repeat="item in items"
+           href="#/{{item.id}}"
+           class="item item-thumbnail-left">
+
+          <img ng-src="{{ item.image }}">
+          <h2>{{ item.album }}</h2>
+          <h4>{{ item.artist }}</h4>
+        </a>
+		-->
+
+		<!-- Static data for testing -->
+
+    <!-- a links test -->
+    <!--
+		<a class="item item-thumbnail-left" href="#">
+			<div class="votemeter"><div upvote="20%"></div></div>
+      		<img class="cover" src="img/cover.jpg">
+      		<h2>Pretty Hate Machine</h2>
+      		<p>Nine Inch Nails</p>
+    	</a>
+    	<a class="item item-thumbnail-left" href="#">
+    		<div class="votemeter"><div upvote="20%"></div></div>
+      		<img class="cover" src="img/cover.jpg">
+      		<h2>Pretty Hate Machine</h2>
+      		<p>Nine Inch Nails</p>
+    	</a>
+    	<a class="item item-thumbnail-left" href="#">
+    		<div class="votemeter"><div upvote="20%"></div></div>
+      		<img class="cover" src="img/cover.jpg">
+      		<h2>Pretty Hate Machine</h2>
+      		<p>Nine Inch Nails</p>
+    	</a>
+    -->
+
+    <!-- ion-list test -->
+    <ion-list>
+      <ion-item class="item-dark item-thumbnail-left" href="#">
+            <div class="votemeter"><div upvote="20%"></div></div>
+            <img class="cover" src="img/cover.jpg">
+            <h2>Pretty Hate Machine</h2>
+            <p>Nine Inch Nails</p>
+      </ion-item>
+      <ion-item class="item-dark item-thumbnail-left" href="#">
+            <div class="votemeter"><div upvote="20%"></div></div>
+            <img class="cover" src="img/cover.jpg">
+            <h2>Pretty Hate Machine</h2>
+            <p>Nine Inch Nails</p>
+      </ion-item>
+      <ion-item class="item-dark item-thumbnail-left" href="#">
+            <div class="votemeter"><div upvote="20%"></div></div>
+            <img class="cover" src="img/cover.jpg">
+            <h2>Pretty Hate Machine</h2>
+            <p>Nine Inch Nails</p>
+      </ion-item>
+    </ion-list>
+      </div>
+    </ion-content>
+</ion-view>

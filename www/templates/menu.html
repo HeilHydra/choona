@@ -1,0 +1,49 @@
+  <ion-side-menus enable-menu-with-back-views="false">
+    <!-- Center content -->
+    <ion-side-menu-content>
+
+      <!-- Nav Bar -->
+        <ion-nav-bar class="bar-dark dark">
+          <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+          </ion-nav-buttons>
+        </ion-nav-bar>
+
+      <!-- content goes here -->
+      <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <!-- Left menu -->
+    <ion-side-menu side="left">
+
+      <!-- Header -->
+      <ion-header-bar class="bar-dark" style="height:350px; border:none; background-color:#191919;">
+
+        <!-- Profile div -->
+        <div style="width:100%;">
+          <div class="row">
+            <div class="col title1">Choona</div>
+          </div>
+          <div class="row">
+            <div class="col textcenter">Welcome back, Jay</div>
+          </div>
+          <div class="row">
+           <div class="col profile"> <center><img src="img/profile.png"/></center> </div>
+          </div>
+          <div class="row">
+           <div class="col"><center><img class="iconloc"></img> Starbucks</center></div>
+          </div>
+        </div>
+      </ion-header-bar>
+
+        <!-- List of menu items -->
+        <ion-content class="dark" style="top:350px; background-color:#191919;">
+          <ion-list>
+            <ion-item nav-clear menu-close href="#/app/playlist" class="item-dark"><img class="play"></img> Playlist </ion-item>
+            <ion-item nav-clear menu-close href="#/app/activity" class="item-dark"><img class="activity"></img> Activity <span class="badge badge-assertive">20</span></ion-item>
+            <ion-item nav-clear menu-close href="#/app/history" class="item-dark"><img class="history"></img> History </ion-item>
+            <ion-item nav-clear menu-close href="#/app/settings" class="item-dark"><img class="settings"></img> Settings </ion-item>
+          </ion-list>
+        </ion-content>
+    </ion-side-menu>
+  </ion-side-menus>
