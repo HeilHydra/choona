@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Vote meter css */
 
 .votemeter{
@@ -43,4 +44,69 @@ a.choonaitem{
   position:absolute;
   left:10px !important;
   width:82px;
+=======
+
+/* Font! */
+
+@font-face{
+  font-family: 'bonveno';
+  src:url("BonvenoCF-Light.otf");
+}
+
+body{
+    font-family: bonveno;
+}
+
+
+.title1{
+  font-size:20px;
+  font-weight:bold;
+  text-align: center;
+}
+
+.textcenter{
+  text-align: center;
+}
+
+#name{
+  position:absolute;
+  margin-top:70px;
+  left:22%;
+}
+
+
+.profile img {
+	height:150px;
+}
+
+#location{
+  position:absolute;
+  margin-top: 270px;
+  left:32%;
+}
+
+.iconloc{
+  content: url("../img/pin.png");
+  width:14px;
+}
+
+.play{
+  content: url("../img/next.png");
+  width:14px;
+}
+
+.activity{
+  content: url("../img/eco.png");
+  width:14px;
+}
+
+.history{
+  content: url("../img/history.png");
+  width:14px;
+}
+
+.settings{
+  content: url("../img/settings.png");
+  width:14px;
+>>>>>>> Move playlist styles to SCSS
 }
