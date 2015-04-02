@@ -2,12 +2,12 @@
 /* Font! */
 
 @font-face{
-  font-family: 'bonveno';
-  src:url("BonvenoCF-Light.otf");
+  font-family: 'lato';
+  src:url("lato/Lato-Light.ttf");
 }
 
 body{
-    font-family: bonveno;
+    font-family: lato;
 }
 
 
