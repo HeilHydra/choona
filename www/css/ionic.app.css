@@ -7601,3 +7601,17 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+@font-face {
+  font-family: 'lato';
+  src: url("lato/Lato-Light.ttf"); }
+
+html, body, h1, h2, h3, h4, h5, h6 {
+  font-family: "lato", cursive !important; }
+
+/* Doesn't work , not sure why!
+
+$font-family-sans-serif: "lato" !default;
+$font-family-light-sans-serif: "lato" !default;
+
+*/

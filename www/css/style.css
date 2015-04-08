@@ -1,16 +1,3 @@
-
-/* Font! */
-
-@font-face{
-  font-family: 'lato';
-  src:url("lato/Lato-Light.ttf");
-}
-
-body{
-    font-family: lato;
-}
-
-
 .title1{
   font-size:20px;
   font-weight:bold;
