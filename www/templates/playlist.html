@@ -1,5 +1,5 @@
-<ion-view>
-    <ion-content class="dark playlist-view" ng-controller="playlistCtrl" style="background-color:#191919;">
+<ion-view class="playlist-view" ng-controller="playlistCtrl">
+    <ion-content class="dark"  style="background-color:#191919;">
 
       <ion-refresher spinner="ripple" pulling-text="Pull to refresh" on-refresh="doRefresh()" ></ion-refresher>
 
@@ -40,27 +40,76 @@
     	</a>
     -->
 
-    <!-- ion-list test -->
-    <ion-list>
-      <ion-item class="item-dark item-thumbnail-left" href="#">
-            <div class="votemeter"><div upvote="20%"></div></div>
-            <img class="cover" src="img/cover.jpg">
-            <h2>Pretty Hate Machine</h2>
-            <p>Nine Inch Nails</p>
-      </ion-item>
-      <ion-item class="item-dark item-thumbnail-left" href="#">
-            <div class="votemeter"><div upvote="20%"></div></div>
-            <img class="cover" src="img/cover.jpg">
-            <h2>Pretty Hate Machine</h2>
-            <p>Nine Inch Nails</p>
-      </ion-item>
-      <ion-item class="item-dark item-thumbnail-left" href="#">
-            <div class="votemeter"><div upvote="20%"></div></div>
-            <img class="cover" src="img/cover.jpg">
-            <h2>Pretty Hate Machine</h2>
-            <p>Nine Inch Nails</p>
-      </ion-item>
-    </ion-list>
+        <!-- ion-list test -->
+        <ion-list>
+          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
+                <div class="votemeter"><div upvote="20%"></div></div>
+                <img class="cover" src="img/cover.jpg">
+                <h2>Pretty Hate Machine</h2>
+                <p>Nine Inch Nails</p>
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+          </ion-item>
+          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
+                <div class="votemeter"><div upvote="20%"></div></div>
+                <img class="cover" src="img/cover.jpg">
+                <h2>Pretty Hate Machine</h2>
+                <p>Nine Inch Nails</p>
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+          </ion-item>
+          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
+                <div class="votemeter"><div upvote="20%"></div></div>
+                <img class="cover" src="img/cover.jpg">
+                <h2>Pretty Hate Machine</h2>
+                <p>Nine Inch Nails</p>
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+          </ion-item>
+          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
+                <div class="votemeter"><div upvote="20%"></div></div>
+                <img class="cover" src="img/cover.jpg">
+                <h2>Pretty Hate Machine</h2>
+                <p>Nine Inch Nails</p>
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+          </ion-item>
+          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
+                <div class="votemeter"><div upvote="20%"></div></div>
+                <img class="cover" src="img/cover.jpg">
+                <h2>Pretty Hate Machine</h2>
+                <p>Nine Inch Nails</p>
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+          </ion-item>
+          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
+                <div class="votemeter"><div upvote="20%"></div></div>
+                <img class="cover" src="img/cover.jpg">
+                <h2>Pretty Hate Machine</h2>
+                <p>Nine Inch Nails</p>
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+          </ion-item>
+          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
+                <div class="votemeter"><div upvote="20%"></div></div>
+                <img class="cover" src="img/cover.jpg">
+                <h2>Pretty Hate Machine</h2>
+                <p>Nine Inch Nails</p>
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+          </ion-item>
+        </ion-list>
       </div>
     </ion-content>
+
+    <!-- now playing bar -->
+
+    <div class="np-wrap">
+        <div class="nowplaying">
+          <img class="cover" src="img/cover.jpg">
+          <h2>Pretty Hate Machine</h2>
+          <p>Nine Inch Nails</p>
+        </div>
+        <div class="playingicon"> <img src="img/pulse.svg"></div>
+    </div>
 </ion-view>
