@@ -22,3 +22,21 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+
+@font-face {
+  font-family: 'lato';
+  src:url("lato/Lato-Light.ttf");
+}
+
+html, body, h1, h2, h3, h4, h5, h6 {
+  font-family:"lato", cursive !important;
+}
+
+/* Doesn't work , not sure why!
+
+$font-family-sans-serif: "lato" !default;
+$font-family-light-sans-serif: "lato" !default;
+
+*/
+
+@import "./menu";

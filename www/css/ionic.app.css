@@ -7601,3 +7601,50 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+@font-face {
+  font-family: 'lato';
+  src: url("lato/Lato-Light.ttf"); }
+
+html, body, h1, h2, h3, h4, h5, h6 {
+  font-family: "lato", cursive !important; }
+
+/* Doesn't work , not sure why!
+
+$font-family-sans-serif: "lato" !default;
+$font-family-light-sans-serif: "lato" !default;
+
+*/
+.menu-view .profile-header {
+  height: 350px;
+  border: none;
+  background-color: #191919; }
+.menu-view .textcenter {
+  text-align: center; }
+.menu-view .choona-logo {
+  margin: 0 auto;
+  content: url("../img/choona-animated.svg");
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px; }
+.menu-view .profile img {
+  height: 150px; }
+.menu-view .choona-menu {
+  top: 350px;
+  background-color: #191919; }
+.menu-view .iconloc {
+  content: url("../img/pin.png");
+  width: 14px; }
+.menu-view .play {
+  content: url("../img/next.png");
+  width: 14px; }
+.menu-view .activity {
+  content: url("../img/eco.png");
+  width: 14px; }
+.menu-view .history {
+  content: url("../img/history.png");
+  width: 14px; }
+.menu-view .settings {
+  content: url("../img/settings.png");
+  width: 14px; }
