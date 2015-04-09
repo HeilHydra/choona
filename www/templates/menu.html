@@ -1,4 +1,4 @@
-  <ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menus class="menu-view" enable-menu-with-back-views="false">
     <!-- Center content -->
     <ion-side-menu-content>
 
@@ -6,6 +6,9 @@
         <ion-nav-bar class="bar-dark dark">
           <ion-nav-buttons side="left">
             <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+          </ion-nav-buttons>
+          <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-plus-round"></button>
           </ion-nav-buttons>
         </ion-nav-bar>
 
@@ -17,12 +20,12 @@
     <ion-side-menu side="left">
 
       <!-- Header -->
-      <ion-header-bar class="bar-dark" style="height:350px; border:none; background-color:#191919;">
+      <ion-header-bar class="bar-dark profile-header">
 
         <!-- Profile div -->
         <div style="width:100%;">
           <div class="row">
-            <div class="col title1">Choona</div>
+            <div class="col textcenter"><img class="choona-logo"></img></div>
           </div>
           <div class="row">
             <div class="col textcenter">Welcome back, Jay</div>
@@ -31,13 +34,13 @@
            <div class="col profile"> <center><img src="img/profile.png"/></center> </div>
           </div>
           <div class="row">
-           <div class="col"><center><img class="iconloc"></img> Starbucks</center></div>
+           <div class="col textcenter"><img class="iconloc"></img> Starbucks</div>
           </div>
         </div>
       </ion-header-bar>
 
         <!-- List of menu items -->
-        <ion-content class="dark" style="top:350px; background-color:#191919;">
+        <ion-content class="dark choona-menu">
           <ion-list>
             <ion-item nav-clear menu-close href="#/app/playlist" class="item-dark"><img class="play"></img> Playlist </ion-item>
             <ion-item nav-clear menu-close href="#/app/activity" class="item-dark"><img class="activity"></img> Activity <span class="badge badge-assertive">20</span></ion-item>

@@ -1,0 +1,57 @@
+.menu-view {
+
+  .profile-header{
+    height:350px;
+    border:none;
+    background-color:#191919;
+  }
+
+  .textcenter{
+    text-align: center;
+  }
+
+  .choona-logo{
+    margin: 0 auto;
+    content: url("../img/choona-animated.svg");
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    height:50px;
+    width:50px;
+  }
+
+  .profile img {
+  	height:150px;
+  }
+
+  .choona-menu{
+    top:350px;
+    background-color:#191919;
+  }
+
+  .iconloc{
+    content: url("../img/pin.png");
+    width:14px;
+  }
+
+  .play{
+    content: url("../img/next.png");
+    width:14px;
+  }
+
+  .activity{
+    content: url("../img/eco.png");
+    width:14px;
+  }
+
+  .history{
+    content: url("../img/history.png");
+    width:14px;
+  }
+
+  .settings{
+    content: url("../img/settings.png");
+    width:14px;
+  }
+
+
+}
