@@ -1,50 +1,3 @@
-<<<<<<< HEAD
-/* Vote meter css */
-
-.votemeter{
-	position:absolute;
-	top:0px;
-	left:0px;
-	background:#cc2311;
-	width:4px;
-	height:100px;
-}
-
-/* Playlist place image */
-
-.headerimg img {
-  width:100%;
-}
-
-/* Custom Playlist List Style */
-
-.choonaitem{
-
-/* base item css */
-  border-color: #ddd;
-  background-color: #fff;
-  color: #444;
-  position: relative;
-  z-index: 2;
-  display: block;
-  margin: -1px;
-  padding: 16px;
-  border-width: 1px;
-  border-style: solid;
-  font-size: 16px;
-}
-
-a.choonaitem{
-
-}
-
-/* Cover */
-
-.cover{
-  position:absolute;
-  left:10px !important;
-  width:82px;
-=======
 
 /* Font! */
 
@@ -108,5 +61,4 @@ body{
 .settings{
   content: url("../img/settings.png");
   width:14px;
->>>>>>> Move playlist styles to SCSS
 }
