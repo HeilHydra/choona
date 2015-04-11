@@ -1,6 +1,6 @@
 {
   "name": "Choona",
-  "app_id": "",
+  "app_id": "2303c733",
   "gulpStartupTasks": [
     "sass",
     "watch"
