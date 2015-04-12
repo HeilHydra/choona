@@ -1,0 +1,78 @@
+.activity-view{
+
+  .ion-android-arrow-down{
+    color:#fe6718;
+  }
+
+  .text-pulling{
+    color:#fff;
+  }
+
+  .spinner svg{
+    stroke: #fe6718;
+    fill: #fe6718;
+  }
+
+  .dark{
+    background-color:#191919;
+  }
+
+  h2, p {
+    color:#ffffff;
+  }
+
+  .card{
+   box-shadow:0 0px 2px rgba(254, 103, 24, 0.5);
+   margin:10px 0px;
+  }
+
+  .item{
+    padding:2px;
+    padding-top: 0px;
+    padding-bottom:0px;
+  }
+
+  .profile-img {
+    max-width:75px;
+    max-height:75px;
+  }
+
+  .profile-img img{
+    width:70px;
+    height:70px;
+  }
+
+  .info{
+    padding-left:15px;
+    font-size:10px;
+  }
+
+  .info h2{
+    word-wrap:break-word;
+    white-space:normal;
+  }
+
+  .socialtype{
+    text-align:center;
+    max-width:75px;
+  }
+
+  .ion-social-facebook{
+    color:#3B5998;
+  }
+
+  .ion-social-twitter{
+    color:#4099FF;
+  }
+
+  .ion-social-googleplus{
+    color:#d34836;
+  }
+
+  .timestamp{
+    font-size:10px;
+    text-align:right;
+  }
+
+
+}

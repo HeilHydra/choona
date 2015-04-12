@@ -7733,3 +7733,46 @@ $font-family-light-sans-serif: "lato" !default;
     right: 5px;
     width: 40px;
     height: 40px; }
+
+.activity-view .ion-android-arrow-down {
+  color: #fe6718; }
+.activity-view .text-pulling {
+  color: #fff; }
+.activity-view .spinner svg {
+  stroke: #fe6718;
+  fill: #fe6718; }
+.activity-view .dark {
+  background-color: #191919; }
+.activity-view h2, .activity-view p {
+  color: #ffffff; }
+.activity-view .card {
+  box-shadow: 0 0px 2px rgba(254, 103, 24, 0.5);
+  margin: 10px 0px; }
+.activity-view .item {
+  padding: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px; }
+.activity-view .profile-img {
+  max-width: 75px;
+  max-height: 75px; }
+.activity-view .profile-img img {
+  width: 70px;
+  height: 70px; }
+.activity-view .info {
+  padding-left: 15px;
+  font-size: 10px; }
+.activity-view .info h2 {
+  word-wrap: break-word;
+  white-space: normal; }
+.activity-view .socialtype {
+  text-align: center;
+  max-width: 75px; }
+.activity-view .ion-social-facebook {
+  color: #3B5998; }
+.activity-view .ion-social-twitter {
+  color: #4099FF; }
+.activity-view .ion-social-googleplus {
+  color: #d34836; }
+.activity-view .timestamp {
+  font-size: 10px;
+  text-align: right; }
