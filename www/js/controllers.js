@@ -12,3 +12,13 @@ $scope.doRefresh = function(){
 };
 
 })
+
+
+.controller('activityCtrl', function($scope, $ionicModal, $timeout) {
+
+$scope.doRefresh = function(){
+	$scope.$broadcast('scroll.refreshComplete');
+	$scope.$apply()
+};
+
+})

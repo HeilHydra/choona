@@ -1,5 +1,81 @@
-<ion-view>
-    <ion-content>
-    Activity goes here!
+<ion-view class="activity-view" ng-controller="activityCtrl">
+    <ion-content class="dark">
+
+      <ion-refresher spinner="ripple" pulling-text="Pull to refresh" on-refresh="doRefresh()"  ></ion-refresher>
+
+      <ion-list>
+
+        <ion-item class="item-dark card">
+          <div class="row">
+            <div class="profile-img col"><img class="profile-img" src="img/profile.png"></div>
+            <div class="info col col-80">
+              <h2> Jay Vagharia is listening to Cotton Eye Joe at Starbucks</h2>
+              <p>#ballin</p>
+            </div>
+          </div>
+          <div class="row">
+             <div class="socialtype col col-20"><i class="icon ion-social-facebook"></i> </div>
+             <div class="timestamp col col-offset-50"> Just now </div>
+          </div>
+        </ion-item>
+
+        <ion-item class="item-dark card">
+          <div class="row">
+            <div class="profile-img col"><img class="profile-img" src="img/profile.png"></div>
+            <div class="info col col-80">
+              <h2> Simon Kerr is listening to Barbie girl at Costa</h2>
+              <p>#imabarbiegirlinabarbieworld</p>
+            </div>
+          </div>
+          <div class="row">
+             <div class="socialtype col col-20"><i class="icon ion-social-twitter"></i> </div>
+             <div class="timestamp col col-offset-50"> 10 minutes ago </div>
+          </div>
+        </ion-item>
+
+        <ion-item class="item-dark card">
+          <div class="row">
+            <div class="profile-img col"><img class="profile-img" src="img/profile.png"></div>
+            <div class="info col col-80">
+              <h2> Oliver Woodings is listening to I'm on a Boat! at Starbucks</h2>
+              <p>#lonelyisland #imonaboat!</p>
+            </div>
+          </div>
+          <div class="row">
+             <div class="socialtype col col-20"><i class="icon ion-social-googleplus"></i> </div>
+             <div class="timestamp col col-offset-50"> 20 minutes ago </div>
+          </div>
+        </ion-item>
+
+        <ion-item class="item-dark card">
+          <div class="row">
+            <div class="profile-img col"><img class="profile-img" src="img/profile.png"></div>
+            <div class="info col col-80">
+              <h2> Jay Vagharia is listening to Cotton Eye Joe at Starbucks</h2>
+              <p>#ballin</p>
+            </div>
+          </div>
+          <div class="row">
+             <div class="socialtype col col-20"><i class="icon ion-social-twitter"></i> </div>
+             <div class="timestamp col col-offset-50"> 25 minutes ago </div>
+          </div>
+        </ion-item>
+
+        <ion-item class="item-dark card">
+          <div class="row">
+            <div class="profile-img col"><img class="profile-img" src="img/profile.png"></div>
+            <div class="info col col-80">
+              <h2> Jay Vagharia is listening to Cotton Eye Joe at Starbucks</h2>
+              <p>#ballin</p>
+            </div>
+          </div>
+          <div class="row">
+             <div class="socialtype col col-20"><i class="icon ion-social-facebook"></i> </div>
+             <div class="timestamp col col-offset-50"> 40 minutes ago </div>
+          </div>
+        </ion-item>
+
+      </ion-list>
+
     </ion-content>
  </ion-view>
