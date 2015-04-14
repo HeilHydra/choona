@@ -7650,14 +7650,39 @@ $font-family-light-sans-serif: "lato" !default;
   width: 14px; }
 
 .playlist-view {
+  /* Spinner and pull to refresh style */
+  /* Global Styles for page */
+  /* Playlist place image */
+  /* Global List styles */
   /* Vote meter css
 
   Bars are swapped here, i.e. votemeter is green and votemeter div is red
 
   */
-  /* Playlist place image */
   /* Cover */
+  /* Album info */
+  /* Vote Buttons -- TODO: For some reason they dont resize! */
   /* Now playing Bar */ }
+  .playlist-view .ion-android-arrow-down {
+    color: #fe6718; }
+  .playlist-view .text-pulling {
+    color: #fff; }
+  .playlist-view .spinner svg {
+    stroke: #fe6718;
+    fill: #fe6718; }
+  .playlist-view .dark {
+    background-color: #191919; }
+  .playlist-view h2, .playlist-view p {
+    color: #ffffff; }
+  .playlist-view .headerimg img {
+    width: 100%; }
+  .playlist-view .card {
+    box-shadow: 0 0px 2px rgba(254, 103, 24, 0.5);
+    margin: 10px 0px; }
+  .playlist-view .item {
+    padding: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px; }
   .playlist-view .votemeter {
     position: absolute;
     top: 0px;
@@ -7669,39 +7694,31 @@ $font-family-light-sans-serif: "lato" !default;
     background: #cc2311;
     height: 50px;
     bottom: 0px; }
-  .playlist-view .headerimg img {
-    width: 100%; }
-  .playlist-view .item-content .cover {
-    position: absolute;
-    left: 10px !important;
+  .playlist-view .album > .cover {
+    max-height: 60px;
+    max-width: 60px;
+    padding: 2px; }
+  .playlist-view .album > .cover img {
     width: 55px;
+    height: 55px;
     border-radius: 100px;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px; }
-  .playlist-view .item, .playlist-view .item-content {
-    min-height: 70px; }
-  .playlist-view .item-content h2 {
-    font-size: 14px;
-    color: #fff;
-    margin-left: -17px; }
-  .playlist-view .item-content p {
-    font-size: 12px;
-    color: #fff;
-    margin-left: -17px; }
-  .playlist-view .item-button-right {
-    padding-right: 2px; }
-  .playlist-view .item-button-right .item-content > .button {
-    top: 18px; }
+  .playlist-view .info {
+    padding-left: 15px;
+    font-size: 10px; }
+  .playlist-view .info h2 {
+    word-wrap: break-word;
+    white-space: normal; }
+  .playlist-view .vote {
+    max-width: 110px;
+    line-height: 20px; }
   .playlist-view .button {
-    border-radius: 60%;
-    -webkit-border-radius: 60%;
-    -moz-border-radius: 60%;
     width: 36px;
-    height: 36px; }
-  .playlist-view .button-balanced {
-    right: 70px !important; }
-  .playlist-view .button > .icon {
-    margin-left: -5px; }
+    height: 36px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%; }
   .playlist-view .np-wrap {
     position: fixed;
     left: 0px;
