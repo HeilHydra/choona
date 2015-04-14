@@ -1,5 +1,57 @@
 .playlist-view {
 
+  /* Spinner and pull to refresh style */
+
+  .ion-android-arrow-down{
+    color:#fe6718;
+  }
+
+  .text-pulling{
+    color:#fff;
+  }
+
+  .spinner svg{
+    stroke: #fe6718;
+    fill: #fe6718;
+  }
+
+  ///////////////////////////////////////
+
+  /* Global Styles for page */
+
+  .dark{
+    background-color:#191919;
+  }
+
+  h2, p {
+    color:#ffffff;
+  }
+
+  ///////////////////////////////////////
+
+  /* Playlist place image */
+
+  .headerimg img {
+    width:100%;
+  }
+
+  ///////////////////////////////////////
+
+  /* Global List styles */
+
+  .card{
+   box-shadow:0 0px 2px rgba(254, 103, 24, 0.5);
+   margin:10px 0px;
+  }
+
+  .item{
+    padding:2px;
+    padding-top: 0px;
+    padding-bottom:0px;
+  }
+
+  ///////////////////////////////////////
+
   /* Vote meter css
 
   Bars are swapped here, i.e. votemeter is green and votemeter div is red
@@ -7,12 +59,12 @@
   */
 
   .votemeter{
-  	position:absolute;
-  	top:0px;
-  	left:0px;
-  	background:#33cd5f;
-  	width:4px;
-  	height:70px;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background:#33cd5f;
+    width:4px;
+    height:70px;
   }
 
   .votemeter div {
@@ -21,63 +73,56 @@
     bottom:0px;
   }
 
-  /* Playlist place image */
-
-  .headerimg img {
-    width:100%;
-  }
+  ///////////////////////////////////////
 
   /* Cover */
 
-  .item-content .cover{
-    position:absolute;
-    left:10px !important;
+  .album > .cover {
+    max-height:60px;
+    max-width:60px;
+    padding:2px;
+  }
+
+  .album > .cover img {
     width:55px;
+    height:55px;
     border-radius: 100px;
-	  -webkit-border-radius: 100px;
-	  -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
   }
 
-  .item, .item-content {
-    min-height:70px;
+  ///////////////////////////////////////
+
+  /* Album info */
+
+  .info{
+    padding-left:15px;
+    font-size:10px;
   }
 
-  .item-content h2{
-    font-size: 14px;
-    color:#fff;
-    margin-left: -17px;
+  .info h2{
+    word-wrap:break-word;
+    white-space:normal;
   }
 
-  .item-content p{
-    font-size: 12px;
-    color:#fff;
-    margin-left: -17px;
+  ///////////////////////////////////////
+
+  /* Vote Buttons -- TODO: For some reason they dont resize! */
+
+  .vote {
+    max-width:110px;
+    line-height:20px;
   }
 
-  .item-button-right{
-    padding-right:2px;
-  }
-
-  .item-button-right .item-content > .button{
-    top:18px;
-  }
-
-  .button{
-    border-radius: 60%;
-    -webkit-border-radius: 60%;
-    -moz-border-radius: 60%;
+  .button {
     width:36px;
     height:36px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
   }
 
-  .button-balanced{
-    right: 70px !important;
-  }
-
-  .button > .icon {
-    margin-left: -5px;
-  }
-
+  ///////////////////////////////////////
 
   /* Now playing Bar */
 
@@ -122,6 +167,5 @@
     height:40px;
 
   }
-
 
 }

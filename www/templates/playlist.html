@@ -1,10 +1,10 @@
 <ion-view class="playlist-view" ng-controller="playlistCtrl">
-    <ion-content class="dark"  style="background-color:#191919;">
+    <ion-content class="dark">
 
       <ion-refresher spinner="ripple" pulling-text="Pull to refresh" on-refresh="doRefresh()" ></ion-refresher>
 
       <div class="headerimg"><img src="img/starbucks.jpeg"/></div>
-      <div class="plist" style="padding:0px;">
+      <div class="plist">
       <!-- ignore until we get some real data streams
         <a ng-repeat="item in items"
            href="#/{{item.id}}"
@@ -42,62 +42,106 @@
 
         <!-- ion-list test -->
         <ion-list>
-          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
-                <div class="votemeter"><div upvote="20%"></div></div>
-                <img class="cover" src="img/cover.jpg">
+          <ion-item class="item-dark card item-button-right">
+            <div class="album row">
+              <div class="votemeter"><div upvote="20%"></div></div>
+              <div class="cover col"> <img src="img/cover.jpg"></div>
+              <div class="info col">
                 <h2>Pretty Hate Machine</h2>
                 <p>Nine Inch Nails</p>
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+              </div>
+              <div class="vote col">
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
+              </div>
+            </div>
           </ion-item>
-          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
-                <div class="votemeter"><div upvote="20%"></div></div>
-                <img class="cover" src="img/cover.jpg">
+          <ion-item class="item-dark card item-button-right">
+            <div class="album row">
+              <div class="votemeter"><div upvote="20%"></div></div>
+              <div class="cover col"> <img src="img/cover.jpg"></div>
+              <div class="info col">
                 <h2>Pretty Hate Machine</h2>
                 <p>Nine Inch Nails</p>
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+              </div>
+              <div class="vote col">
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
+              </div>
+            </div>
           </ion-item>
-          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
-                <div class="votemeter"><div upvote="20%"></div></div>
-                <img class="cover" src="img/cover.jpg">
+          <ion-item class="item-dark card item-button-right">
+            <div class="album row">
+              <div class="votemeter"><div upvote="20%"></div></div>
+              <div class="cover col"> <img src="img/cover.jpg"></div>
+              <div class="info col">
                 <h2>Pretty Hate Machine</h2>
                 <p>Nine Inch Nails</p>
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+              </div>
+              <div class="vote col">
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
+              </div>
+            </div>
           </ion-item>
-          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
-                <div class="votemeter"><div upvote="20%"></div></div>
-                <img class="cover" src="img/cover.jpg">
+          <ion-item class="item-dark card item-button-right">
+            <div class="album row">
+              <div class="votemeter"><div upvote="20%"></div></div>
+              <div class="cover col"> <img src="img/cover.jpg"></div>
+              <div class="info col">
                 <h2>Pretty Hate Machine</h2>
                 <p>Nine Inch Nails</p>
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+              </div>
+              <div class="vote col">
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
+              </div>
+            </div>
           </ion-item>
-          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
-                <div class="votemeter"><div upvote="20%"></div></div>
-                <img class="cover" src="img/cover.jpg">
+          <ion-item class="item-dark card item-button-right">
+            <div class="album row">
+              <div class="votemeter"><div upvote="20%"></div></div>
+              <div class="cover col"> <img src="img/cover.jpg"></div>
+              <div class="info col">
                 <h2>Pretty Hate Machine</h2>
                 <p>Nine Inch Nails</p>
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+              </div>
+              <div class="vote col">
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
+              </div>
+            </div>
           </ion-item>
-          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
-                <div class="votemeter"><div upvote="20%"></div></div>
-                <img class="cover" src="img/cover.jpg">
+          <ion-item class="item-dark card item-button-right">
+            <div class="album row">
+              <div class="votemeter"><div upvote="20%"></div></div>
+              <div class="cover col"> <img src="img/cover.jpg"></div>
+              <div class="info col">
                 <h2>Pretty Hate Machine</h2>
                 <p>Nine Inch Nails</p>
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+              </div>
+              <div class="vote col">
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
+              </div>
+            </div>
           </ion-item>
-          <ion-item class="item-dark item-thumbnail-left item-button-right" href="#">
-                <div class="votemeter"><div upvote="20%"></div></div>
-                <img class="cover" src="img/cover.jpg">
+          <ion-item class="item-dark card item-button-right">
+            <div class="album row">
+              <div class="votemeter"><div upvote="20%"></div></div>
+              <div class="cover col"> <img src="img/cover.jpg"></div>
+              <div class="info col">
                 <h2>Pretty Hate Machine</h2>
                 <p>Nine Inch Nails</p>
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i>  </button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i>  </button>
+              </div>
+              <div class="vote col">
+                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
+                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
+              </div>
+            </div>
           </ion-item>
+
+
         </ion-list>
       </div>
     </ion-content>
