@@ -7661,59 +7661,7 @@ $font-family-light-sans-serif: "lato" !default;
   */
   /* Cover */
   /* Album info */
-  /* Vote Buttons */
-  /* Cover
-
-  .item-content .cover{
-    position:absolute;
-    left:10px !important;
-    width:55px;
-    border-radius: 100px;
-	  -webkit-border-radius: 100px;
-	  -moz-border-radius: 100px;
-  }
-
-  .item, .item-content {
-    min-height:70px;
-  }
-
-  .item-content h2{
-    font-size: 14px;
-    color:#fff;
-    margin-left: -17px;
-  }
-
-  .item-content p{
-    font-size: 12px;
-    color:#fff;
-    margin-left: -17px;
-  }
-
-  .item-button-right{
-    padding-right:2px;
-  }
-
-  .item-button-right .item-content > .button{
-    top:18px;
-  }
-
-  .button{
-    border-radius: 60%;
-    -webkit-border-radius: 60%;
-    -moz-border-radius: 60%;
-    width:36px;
-    height:36px;
-  }
-
-  .button-balanced{
-    right: 70px !important;
-  }
-
-  .button > .icon {
-    margin-left: -5px;
-  }
-
-  */
+  /* Vote Buttons -- TODO: For some reason they dont resize! */
   /* Now playing Bar */ }
   .playlist-view .ion-android-arrow-down {
     color: #fe6718; }
