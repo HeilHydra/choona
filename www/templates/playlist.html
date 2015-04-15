@@ -1,4 +1,4 @@
-<ion-view class="playlist-view" ng-controller="playlistCtrl">
+<ion-view class="playlist-view" ng-controller="playlistCtrl" >
     <ion-content class="dark">
 
       <ion-refresher spinner="ripple" pulling-text="Pull to refresh" on-refresh="doRefresh()" ></ion-refresher>
@@ -15,32 +15,6 @@
           <h4>{{ item.artist }}</h4>
         </a>
 		-->
-
-		<!-- Static data for testing -->
-
-    <!-- a links test -->
-    <!--
-		<a class="item item-thumbnail-left" href="#">
-			<div class="votemeter"><div upvote="20%"></div></div>
-      		<img class="cover" src="img/cover.jpg">
-      		<h2>Pretty Hate Machine</h2>
-      		<p>Nine Inch Nails</p>
-    	</a>
-    	<a class="item item-thumbnail-left" href="#">
-    		<div class="votemeter"><div upvote="20%"></div></div>
-      		<img class="cover" src="img/cover.jpg">
-      		<h2>Pretty Hate Machine</h2>
-      		<p>Nine Inch Nails</p>
-    	</a>
-    	<a class="item item-thumbnail-left" href="#">
-    		<div class="votemeter"><div upvote="20%"></div></div>
-      		<img class="cover" src="img/cover.jpg">
-      		<h2>Pretty Hate Machine</h2>
-      		<p>Nine Inch Nails</p>
-    	</a>
-    -->
-
-        <!-- ion-list test -->
         <ion-list>
           <ion-item class="item-dark card item-button-right">
             <div class="album row">
@@ -148,12 +122,14 @@
 
     <!-- now playing bar -->
 
-    <div class="np-wrap">
-        <div class="nowplaying">
-          <img class="cover" src="img/cover.jpg">
+    <div class="np-wrap" ng-click="openModal()">
+      <div class="album row">
+        <div class="nowplaying-cover col"> <img src="img/cover.jpg"></div>
+        <div class="nowplaying-info col">
           <h2>Pretty Hate Machine</h2>
           <p>Nine Inch Nails</p>
         </div>
         <div class="playingicon"> <img src="img/pulse.svg"></div>
+      </div>
     </div>
 </ion-view>

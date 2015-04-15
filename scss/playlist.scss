@@ -107,24 +107,57 @@
 
   ///////////////////////////////////////
 
-  /* Vote Buttons -- TODO: For some reason they dont resize! */
+  /* Vote Buttons */
 
   .vote {
-    max-width:110px;
-    line-height:20px;
+    max-width:120px;
+    width:120px;
+    max-height:inherit;
+    height:inherit;
+    padding:8px 10px;
   }
 
   .button {
-    width:36px;
-    height:36px;
+    min-width:42px;
+    min-height:42px;
+    width:42px;
+    height:42px;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
+    padding:0px;
   }
+
+  .button-assertive{
+    margin-left:8px;
+  }
+
 
   ///////////////////////////////////////
 
   /* Now playing Bar */
+
+  .np-wrap:before{
+    content:"";
+    display:block;
+
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:70px;
+    width:100%;
+    z-index:-1;
+    //background-color: #fe6718;
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.65)
+      ),
+    url("../img/cover.jpg");
+    background-size:cover;
+    -webkit-transform:scale(1.2);
+    filter:blur(5px);
+    -webkit-filter: blur(5px);
+    }
 
   .np-wrap{
     position:fixed;
@@ -132,31 +165,38 @@
     bottom:0px;
     height:70px;
     width:100%;
-    z-index:100;
-    background-color: #fe6718;
+    border-top: 3px solid #fe6718;
+    overflow:hidden;
   }
 
-  .nowplaying h2 {
+  .np-wrap >.album {
+    border-top: 1px solid #fe6718;
+
+  }
+
+  .nowplaying-info h2 {
+    font-size: 16px;
+    color:#fff;
+  }
+
+  .nowplaying-info p{
     font-size: 14px;
     color:#fff;
-    margin-left: 80px;
-  }
-
-  .nowplaying p{
-    font-size: 12px;
-    color:#fff;
-    margin-left: 80px;
     line-height: 1px;
   }
 
-  .nowplaying .cover {
-    position:fixed;
+  .nowplaying-cover {
+    max-height:60px;
+    max-width:60px;
+    padding:2px;
+  }
+
+  .nowplaying-cover img {
     width:55px;
+    height:55px;
     border-radius: 100px;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
-    left: 10px !important;
-    bottom:7px;
   }
 
   .playingicon img{
