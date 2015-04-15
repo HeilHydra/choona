@@ -7898,3 +7898,96 @@ $font-family-light-sans-serif: "lato" !default;
   width: 50px;
   height: 5px;
   background-color: #fe6718; }
+
+.history-view .dark {
+  background-color: #191919; }
+.history-view h2, .history-view p {
+  color: #ffffff; }
+.history-view .card {
+  box-shadow: 0 0px 2px rgba(254, 103, 24, 0.5);
+  margin: 10px 0px; }
+.history-view .item {
+  padding: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px; }
+.history-view .item-content {
+  padding: 0px; }
+.history-view .profile-img {
+  max-width: 75px;
+  max-height: 75px; }
+.history-view .profile-img img {
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px; }
+.history-view .info {
+  padding-left: 15px;
+  font-size: 10px; }
+.history-view .info h2 {
+  word-wrap: break-word;
+  white-space: normal; }
+.history-view .timestamp {
+  font-size: 10px;
+  text-align: right;
+  position: relative; }
+  .history-view .timestamp .bottom {
+    position: absolute;
+    bottom: 0px;
+    right: 10px; }
+
+.history-detail-view {
+  /* Global List styles */
+  /* Vote meter css
+
+  Bars are swapped here, i.e. votemeter is green and votemeter div is red
+
+  */
+  /* Cover */
+  /* Album info */ }
+  .history-detail-view .dark {
+    background-color: #191919; }
+  .history-detail-view h2, .history-detail-view p {
+    color: #ffffff; }
+  .history-detail-view .card {
+    box-shadow: 0 0px 2px rgba(254, 103, 24, 0.5);
+    margin: 10px 0px; }
+  .history-detail-view .item {
+    padding: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px; }
+  .history-detail-view .votemeter {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: #33cd5f;
+    width: 4px;
+    height: 70px; }
+  .history-detail-view .votemeter div {
+    background: #cc2311;
+    height: 50px;
+    bottom: 0px; }
+  .history-detail-view .album > .cover {
+    max-height: 60px;
+    max-width: 60px;
+    padding: 2px; }
+  .history-detail-view .album > .cover img {
+    width: 55px;
+    height: 55px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px; }
+  .history-detail-view .info {
+    padding-left: 15px;
+    font-size: 10px; }
+  .history-detail-view .info h2 {
+    word-wrap: break-word;
+    white-space: normal; }
+  .history-detail-view .timestamp {
+    font-size: 10px;
+    text-align: right;
+    position: relative; }
+    .history-detail-view .timestamp .bottom {
+      position: absolute;
+      bottom: 0px;
+      right: 10px; }
