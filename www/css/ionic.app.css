@@ -7661,7 +7661,7 @@ $font-family-light-sans-serif: "lato" !default;
   */
   /* Cover */
   /* Album info */
-  /* Vote Buttons -- TODO: For some reason they dont resize! */
+  /* Vote Buttons */
   /* Now playing Bar */ }
   .playlist-view .ion-android-arrow-down {
     color: #fe6718; }
@@ -7711,39 +7711,63 @@ $font-family-light-sans-serif: "lato" !default;
     word-wrap: break-word;
     white-space: normal; }
   .playlist-view .vote {
-    max-width: 110px;
-    line-height: 20px; }
+    max-width: 120px;
+    width: 120px;
+    max-height: inherit;
+    height: inherit;
+    padding: 8px 10px; }
   .playlist-view .button {
-    width: 36px;
-    height: 36px;
+    min-width: 42px;
+    min-height: 42px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     -webkit-border-radius: 50%;
-    -moz-border-radius: 50%; }
+    -moz-border-radius: 50%;
+    padding: 0px; }
+  .playlist-view .button-assertive {
+    margin-left: 8px; }
+  .playlist-view .np-wrap:before {
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 70px;
+    width: 100%;
+    z-index: -1;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../img/cover.jpg");
+    background-size: cover;
+    -webkit-transform: scale(1.2);
+    filter: blur(5px);
+    -webkit-filter: blur(5px); }
   .playlist-view .np-wrap {
     position: fixed;
     left: 0px;
     bottom: 0px;
     height: 70px;
     width: 100%;
-    z-index: 100;
-    background-color: #fe6718; }
-  .playlist-view .nowplaying h2 {
+    border-top: 3px solid #fe6718;
+    overflow: hidden; }
+  .playlist-view .np-wrap > .album {
+    border-top: 1px solid #fe6718; }
+  .playlist-view .nowplaying-info h2 {
+    font-size: 16px;
+    color: #fff; }
+  .playlist-view .nowplaying-info p {
     font-size: 14px;
     color: #fff;
-    margin-left: 80px; }
-  .playlist-view .nowplaying p {
-    font-size: 12px;
-    color: #fff;
-    margin-left: 80px;
     line-height: 1px; }
-  .playlist-view .nowplaying .cover {
-    position: fixed;
+  .playlist-view .nowplaying-cover {
+    max-height: 60px;
+    max-width: 60px;
+    padding: 2px; }
+  .playlist-view .nowplaying-cover img {
     width: 55px;
+    height: 55px;
     border-radius: 100px;
     -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    left: 10px !important;
-    bottom: 7px; }
+    -moz-border-radius: 100px; }
   .playlist-view .playingicon img {
     position: fixed;
     bottom: 7px;
@@ -7793,3 +7817,84 @@ $font-family-light-sans-serif: "lato" !default;
 .activity-view .timestamp {
   font-size: 10px;
   text-align: right; }
+
+.nowplaying-modal {
+  background: #191919;
+  left: 0px;
+  width: 100%;
+  bottom: 0px; }
+
+.nowplaying-view .nowplaying-info {
+  text-align: center;
+  padding: 40px; }
+.nowplaying-view .nowplaying-info h2 {
+  font-size: 30px;
+  color: #fff; }
+.nowplaying-view .nowplaying-info p {
+  font-size: 16px;
+  color: #fff;
+  line-height: 1px; }
+.nowplaying-view .button-light {
+  border-color: #ffffff;
+  color: #ffffff;
+  min-height: 40px;
+  min-width: 40px;
+  height: 40px;
+  width: 40px;
+  border: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10; }
+.nowplaying-view .nowplaying-cover {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center; }
+.nowplaying-view .nowplaying-cover img {
+  min-width: 200px;
+  min-height: 200px;
+  width: 80%;
+  height: 80%;
+  border-radius: 500px;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px; }
+.nowplaying-view .close-playlist {
+  float: right; }
+.nowplaying-view .cover-full {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/cover.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 200px;
+  min-height: 400px;
+  width: 100%;
+  height: auto;
+  position: relative; }
+.nowplaying-view .round-overlay-button {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background-color: #fe6718;
+  position: absolute;
+  bottom: -28px;
+  right: 20px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  transition: all linear 220ms; }
+  .nowplaying-view .round-overlay-button.activated {
+    opacity: 1;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+    background-color: #e24c01; }
+.nowplaying-view .song-time {
+  color: #fff; }
+  .nowplaying-view .song-time .remaining {
+    text-align: right; }
+.nowplaying-view .scrubber {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  background-color: #772E08; }
+.nowplaying-view .progress {
+  width: 50px;
+  height: 5px;
+  background-color: #fe6718; }
