@@ -8014,3 +8014,121 @@ $font-family-light-sans-serif: "lato" !default;
 .settings-view .toggle.toggle-assertive input:checked + .track {
   border-color: #fe6718;
   background-color: #fe6718; }
+
+.intro-view .slider-pager {
+  top: 0;
+  bottom: initial; }
+.intro-view .slider-pager {
+  display: inline; }
+.intro-view .slider-box {
+  color: #191919; }
+.intro-view .slider {
+  height: 100%;
+  background: #191919;
+  display: inline; }
+.intro-view .slider-slide {
+  padding-top: 80px;
+  color: #999;
+  background-color: #191919;
+  text-align: center;
+  font-weight: 300; }
+.intro-view #logo {
+  margin: 30px 0px; }
+.intro-view #list {
+  width: 170px;
+  margin: 30px auto;
+  font-size: 20px; }
+.intro-view #list ol {
+  margin-top: 30px; }
+.intro-view #list ol li {
+  text-align: left;
+  list-style: decimal;
+  margin: 10px 0px; }
+.intro-view #change {
+  color: #FFF;
+  font-size: 50px; }
+.intro-view .preview {
+  margin-left: auto;
+  margin-right: auto;
+  margin: 50px, 50px, 50px, 50px;
+  background-image: url("../img/intro_1.png");
+  background-position: center;
+  background-size: cover;
+  border-radius: 50% 50% 50% 50%;
+  width: 300px;
+  height: 300px; }
+.intro-view .preview_map {
+  margin-left: auto;
+  margin-right: auto;
+  margin: 50px, 50px, 50px, 50px;
+  background-image: url("../img/map_1.png");
+  background-position: center;
+  background-size: cover;
+  border-radius: 50% 50% 50% 50%;
+  width: 300px;
+  height: 300px; }
+.intro-view .choone {
+  padding: 40px;
+  font-size: 20px; }
+.intro-view .newButton {
+  background-color: #191919;
+  border-color: #fe6718;
+  color: #fe6718;
+  position: fixed;
+  bottom: 20px;
+  width: 100%; }
+.intro-view .logButton {
+  background-color: #fe6718;
+  border-color: #fe6718;
+  color: #191919;
+  font-family: "lato";
+  font-size: 20px; }
+.intro-view .ion-ios-circle-outline {
+  color: #fe6718; }
+.intro-view .ion-record {
+  color: #fe6718; }
+.intro-view .item-floating-label {
+  color: #fe6718;
+  border-color: #191919;
+  text-align: center;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px; }
+.intro-view .buttonSign {
+  background-color: #191919;
+  border-color: #fe6718;
+  color: #fe6718; }
+.intro-view .labelText {
+  color: #999;
+  font-size: 18px;
+  font-family: "lato";
+  text-align: center; }
+.intro-view .labeldiv {
+  position: relative; }
+.intro-view .labeldiv .icon {
+  position: absolute;
+  left: 0px;
+  padding: 8px;
+  display: inline-block;
+  line-height: 20px; }
+.intro-view .boxes {
+  padding-left: 15px;
+  padding-right: 15px; }
+.intro-view .id {
+  color: #999;
+  font-size: 30px;
+  padding-top: 0; }
+.intro-view .ion-social-facebook {
+  color: #fff;
+  font-size: 25px; }
+.intro-view button#facebook {
+  border-color: #2d5073;
+  background-color: #3b5998;
+  color: #fff;
+  font-family: "lato"; }
+.intro-view hr {
+  background-color: #fe6718;
+  border-color: #fe6718;
+  height: 0.2px; }
+.intro-view .padder {
+  padding-top: 20px; }
