@@ -12,7 +12,7 @@ angular.module('starter.controllers', [])
 
 .controller('intCtrl', function($scope, $state) {
 
-	$scope.myActiveSlide = 3;
+	$scope.myActiveSlide = 0;
 
 	$scope.startApp = function(){
 		$state.go('app.playlist');
