@@ -21,12 +21,6 @@ angular.module('choona', ['ionic', 'choona.controllers'])
         controller: 'introCtrl'
       })
 
-      .state('login', {
-        url: "/login",
-        templateUrl: "templates/login.html",
-        controller: 'loginCtrl'
-      })
-
       .state('app', {
         url: "/app",
         abstract: true,

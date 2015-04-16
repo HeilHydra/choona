@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('choona.controllers', [])
 
   .controller('AppCtrl', function() {
 
