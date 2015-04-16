@@ -1,0 +1,41 @@
+.settings-view{
+
+  .dark{
+    background-color:#191919;
+  }
+
+  h2, p {
+    color:#ffffff;
+  }
+
+  h2{
+    font-size:18px;
+  }
+
+  p{
+    word-wrap:break-word;
+    white-space:normal;
+  }
+
+  .card{
+   box-shadow:0 0px 2px rgba(254, 103, 24, 0.5);
+   margin:10px 0px;
+  }
+
+  ul li{
+    background-color:#191919;
+    border: 1px solid #000;
+    font-size:18px;
+    box-shadow:0 0px 2px rgba(254, 103, 24, 0.5);
+  }
+
+  ul li:first-child{
+    border:none;
+  }
+
+  .toggle.toggle-assertive input:checked + .track {
+    border-color:  #fe6718;
+    background-color: #fe6718;
+  }
+
+}
