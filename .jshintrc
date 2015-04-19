@@ -38,6 +38,7 @@
     "Event": true,
     "angular": true,
     "cordova": true,
-    "StatusBar": true
+    "StatusBar": true,
+    "io": true
   }
 }

@@ -19,8 +19,17 @@
     width:50px;
   }
 
-  .profile img {
-  	height:150px;
+  .profile-picture {
+    margin-left: auto;
+    margin-right: auto;
+    width: 130px;
+    height: 130px;
+    border-radius: 65px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+    }
   }
 
   .choona-menu{

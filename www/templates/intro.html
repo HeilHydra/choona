@@ -1,45 +1,45 @@
-  <ion-view class="intro-view" ng-controller="intCtrl">
-    <ion-slide-box show-pager="true" active-slide="myActiveSlide" on-slide-changed="slideChanged(index)">
-      <ion-slide>
-        <h3 id="change">Welcome to</h3>
-        <div id="logo">
-          <img src="img/choona-animated.svg" height="50%" width="50%"/>
-        </div>
-        <h3 id="change">Choona</h3>
-        <br/>
-        <p class="choone">A Crowd Controlled Jukebox</p>
-        <div class="newButton button-full button-light"><p class="choone"><i class="ion-chevron-right"></i>  <i class="ion-chevron-right"></i>  <i class="ion-chevron-right"></i></p></div>
-        <!-- <div class="pointers"><i class="ion-record"> </i><i class="ion-ios-circle-outline"></i> <i class="ion-ios-circle-outline"></i></div> -->
-      </ion-slide>
-      <ion-slide>
-        <img src="img/choona-animated.svg" height="10%" width="10%"/><br/><br/>
-        <div class="preview"></div>
-        <p class="choone">Choone into the music you want...</p>
-        <div class="newButton button-full button-light"><p class="choone"><i class="ion-chevron-right"></i>  <i class="ion-chevron-right"></i>  <i class="ion-chevron-right"></i></p></div>
-        <!-- <div class="pointers"><i class="ion-ios-circle-outline"></i> <i class="ion-record"> </i><i class="ion-ios-circle-outline"></i></div> -->
-      </ion-slide>
-      <ion-slide>
-        <img src="img/choona-animated.svg" height="10%" width="10%"/><br/><br/>
-        <div class="preview_map"></div>
-        <p class="choone">...wherever you are</p>
-        <div class="newButton button-full button-light"><p class="choone">Sign In   <i class="ion-chevron-right"></i>  <i class="ion-chevron-right"></i>  <i class="ion-chevron-right"></i></p></div>
-      </ion-slide>
-      <ion-slide>
-        <h3 class="id">Choona</h3>
-        <img src="img/choona-animated.svg" height="40%" width="40%"/><br/><br/>
-        <div class="boxes">
-        <div class="item item-input item-floating-label labeldiv">
-          <i class="icon ion-android-person"></i>
-          <input class="labelText" type="text" placeholder="Username" ng-model="user.username"></input>
-        </div>
-        <div class=" item item-input item-floating-label labeldiv">
-          <i class="icon ion-android-lock"></i>
-          <input class="labelText" type="password" placeholder="Password" ng-model="user.password">
-        </div>
-        <button class="button button-full button-positive" id="facebook" ng-click="startApp()"><i class="ion-social-facebook"></i>  Sign in with Facebook </button>
-        <div class="padder"><button class="button button-full button-positive logButton" ng-click="startApp()">Log In</button></div>
-        </div>
-      </ion-slide>
-
-    </ion-slide-box>
-  </ion-view>
+<ion-view class="intro-view" ng-controller="introCtrl">
+  <ion-slide-box show-pager="true" active-slide="activeSlide">
+    <ion-slide>
+      <h3 id="change">Welcome to</h3>
+      <div id="logo">
+        <img src="img/choona-animated.svg" height="50%" width="50%" />
+      </div>
+      <h3 id="change">Choona</h3>
+      <br />
+      <p class="choone">A Crowd Controlled Jukebox</p>
+      <div class="newButton button-full button-light">
+        <p class="choone">
+          <i class="ion-chevron-right"></i>
+          <i class="ion-chevron-right"></i>
+          <i class="ion-chevron-right"></i>
+        </p>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <img src="img/choona-animated.svg" height="10%" width="10%"/><br/><br/>
+      <div class="preview"></div>
+      <p class="choone">Choone into the music you want...</p>
+      <div class="newButton button-full button-light">
+        <p class="choone">
+          <i class="ion-chevron-right"></i>
+          <i class="ion-chevron-right"></i>
+          <i class="ion-chevron-right"></i>
+        </p>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <img src="img/choona-animated.svg" height="10%" width="10%"/><br/><br/>
+      <div class="preview_map"></div>
+      <p class="choone">...wherever you are</p>
+      <div class="newButton button-full button-light" ng-click="finishedTutorial()">
+        <p class="choone">
+          Sign In
+          <i class="ion-chevron-right"></i> 
+          <i class="ion-chevron-right"></i> 
+          <i class="ion-chevron-right"></i>
+        </p>
+      </div>
+    </ion-slide>
+  </ion-slide-box>
+</ion-view>

@@ -7603,8 +7603,15 @@ a.button {
   background-repeat: no-repeat;
   height: 50px;
   width: 50px; }
-.menu-view .profile img {
-  height: 150px; }
+.menu-view .profile-picture {
+  margin-left: auto;
+  margin-right: auto;
+  width: 130px;
+  height: 130px;
+  border-radius: 65px;
+  overflow: hidden; }
+  .menu-view .profile-picture img {
+    height: 100%; }
 .menu-view .choona-menu {
   top: 350px;
   background-color: #191919; }
@@ -8107,3 +8114,49 @@ a.button {
   height: 0.2px; }
 .intro-view .padder {
   padding-top: 20px; }
+
+.login-view {
+  background: #191919; }
+  .login-view #a0-lock.a0-theme-default .a0-zocial.a0-guest {
+    background: #ff8f40; }
+  .login-view #a0-lock.a0-theme-default .a0-panel, .login-view #a0-widget .a0-panel {
+    background: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    color: white;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    position: absolute; }
+  .login-view #a0-lock.a0-theme-default .a0-panel .a0-close:hover, .login-view #a0-widget .a0-panel .a0-close:hover {
+    color: #fff; }
+  .login-view #a0-lock.a0-theme-default .a0-panel .a0-avatar, .login-view #a0-widget .a0-panel .a0-avatar {
+    background: rgba(0, 0, 0, 0.2); }
+  .login-view #a0-lock.a0-theme-default .a0-panel .a0-avatar i, .login-view #a0-widget .a0-panel .a0-avatar i {
+    color: #fff; }
+  .login-view #a0-lock.a0-theme-default .a0-panel .a0-inputs, .login-view #a0-widget .a0-panel .a0-inputs {
+    border-color: rgba(0, 0, 0, 0.4); }
+  .login-view #a0-lock.a0-theme-default .a0-panel .a0-email input, .login-view #a0-widget .a0-panel .a0-email input, .login-view #a0-lock.a0-theme-default .a0-panel .a0-password input, .login-view #a0-widget .a0-panel .a0-password input, .login-view #a0-lock.a0-theme-default .a0-panel .a0-repeatPassword input, .login-view #a0-widget .a0-panel .a0-repeatPassword input {
+    background: rgba(255, 255, 255, 0.9);
+    color: black; }
+  .login-view #a0-lock.a0-theme-default .a0-panel .a0-separator, .login-view #a0-widget .a0-panel .a0-separator {
+    color: rgba(255, 255, 255, 0.5); }
+  .login-view #a0-lock.a0-theme-default .a0-panel button.a0-primary, .login-view #a0-widget .a0-panel button.a0-primary {
+    background: #ff8f40;
+    border-radius: 100px;
+    width: 80%; }
+  .login-view #a0-lock.a0-theme-default .a0-panel button.a0-primary:hover, .login-view #a0-widget .a0-panel button.a0-primary:hover, .login-view #a0-lock.a0-theme-default .a0-panel button.a0-primary:focus, .login-view #a0-widget .a0-panel button.a0-primary:focus {
+    background: #ff7b2c; }
+  .login-view #a0-lock.a0-theme-default .a0-panel .a0-btn-small, .login-view #a0-widget .a0-panel .a0-btn-small {
+    border-color: rgba(255, 255, 255, 0.2); }
+  .login-view #a0-lock.a0-theme-default .a0-panel .a0-btn-small:hover, .login-view #a0-widget .a0-panel .a0-btn-small:hover {
+    border-color: white;
+    background: none; }
+  .login-view #a0-lock.a0-theme-default .a0-panel .a0-footer .a0-logo i, .login-view #a0-widget .a0-panel .a0-footer .a0-logo i {
+    color: white; }
+  @media screen and (max-width: 480px) {
+    .login-view #a0-lock .a0-popup .a0-overlay, .login-view #a0-widget .a0-popup .a0-overlay {
+      background: none;
+      color: white; }
+    .login-view #a0-lock .a0-popup .a0-overlay .a0-panel, .login-view #a0-widget .a0-popup .a0-overlay .a0-panel {
+      background: transparent; } }

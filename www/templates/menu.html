@@ -1,52 +1,52 @@
-  <ion-side-menus class="menu-view" enable-menu-with-back-views="false">
-    <!-- Center content -->
-    <ion-side-menu-content>
+<ion-side-menus class="menu-view" enable-menu-with-back-views="false" ng-controller="appCtrl">
+  <!-- Center content -->
+  <ion-side-menu-content>
 
-      <!-- Nav Bar -->
-        <ion-nav-bar class="bar-dark dark">
-          <ion-nav-buttons side="left">
-            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-          </ion-nav-buttons>
-          <ion-nav-buttons side="right">
-            <button class="button button-icon icon ion-plus-round"></button>
-          </ion-nav-buttons>
-        </ion-nav-bar>
+    <!-- Nav Bar -->
+      <ion-nav-bar class="bar-dark dark">
+        <ion-nav-buttons side="left">
+          <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+          <button class="button button-icon icon ion-plus-round"></button>
+        </ion-nav-buttons>
+      </ion-nav-bar>
 
-      <!-- content goes here -->
-      <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
-    </ion-side-menu-content>
+    <!-- content goes here -->
+    <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+  </ion-side-menu-content>
 
-    <!-- Left menu -->
-    <ion-side-menu side="left">
+  <!-- Left menu -->
+  <ion-side-menu side="left">
 
-      <!-- Header -->
-      <ion-header-bar class="bar-dark profile-header">
+    <!-- Header -->
+    <ion-header-bar class="bar-dark profile-header">
 
-        <!-- Profile div -->
-        <div style="width:100%;">
-          <div class="row">
-            <div class="col textcenter"><img class="choona-logo"></img></div>
-          </div>
-          <div class="row">
-            <div class="col textcenter">Welcome back, Jay</div>
-          </div>
-          <div class="row">
-           <div class="col profile"> <center><img src="img/profile.png"/></center> </div>
-          </div>
-          <div class="row">
-           <div class="col textcenter"><img class="iconloc"></img> Starbucks</div>
-          </div>
+      <!-- Profile div -->
+      <div style="width:100%;">
+        <div class="row">
+          <div class="col textcenter"><img class="choona-logo"></img></div>
         </div>
-      </ion-header-bar>
+        <div class="row">
+          <div class="col textcenter">Welcome back, {{name}}</div>
+        </div>
+        <div class="row">
+        <div class="col"><div class='profile-picture'><img ng-attr-src="{{profile.picture}}"/></div></div>
+        </div>
+        <div class="row">
+         <div class="col textcenter"><img class="iconloc"></img> Starbucks</div>
+        </div>
+      </div>
+    </ion-header-bar>
 
-        <!-- List of menu items -->
-        <ion-content class="dark choona-menu">
-          <ion-list>
-            <ion-item nav-clear menu-close href="#/app/playlist" class="item-dark"><img class="play"></img> Playlist </ion-item>
-            <ion-item nav-clear menu-close href="#/app/activity" class="item-dark"><img class="activity"></img> Activity <span class="badge badge-assertive">20</span></ion-item>
-            <ion-item nav-clear menu-close href="#/app/history" class="item-dark"><img class="history"></img> History </ion-item>
-            <ion-item nav-clear menu-close href="#/app/settings" class="item-dark"><img class="settings"></img> Settings </ion-item>
-          </ion-list>
-        </ion-content>
-    </ion-side-menu>
-  </ion-side-menus>
+      <!-- List of menu items -->
+      <ion-content class="dark choona-menu">
+        <ion-list>
+          <ion-item nav-clear menu-close href="#/app/playlist" class="item-dark"><img class="play"></img> Playlist </ion-item>
+          <ion-item nav-clear menu-close href="#/app/activity" class="item-dark"><img class="activity"></img> Activity <span class="badge badge-assertive">20</span></ion-item>
+          <ion-item nav-clear menu-close href="#/app/history" class="item-dark"><img class="history"></img> History </ion-item>
+          <ion-item nav-clear menu-close href="#/app/settings" class="item-dark"><img class="settings"></img> Settings </ion-item>
+        </ion-list>
+      </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
