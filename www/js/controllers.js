@@ -44,6 +44,20 @@ angular.module('choona.controllers', [])
       $scope.$apply();
     };
 
+    //Staic data
+
+        $scope.items = [
+          {id:1, title: "Gotta Be Somebody", artist:"Nickelback", cover:"img/cover.jpg"},
+          {id:2, title:"Dark Horse", artist:"Nicelback", cover:"img/cover.jpg"},
+          {id:3, title:"Someday", artist:"Nickelback", cover:"img/cover.jpg"},
+          {id:4, title:"All The Right Reasons", artist:"Nickelback", cover:"img/cover.jpg"},
+          {id:5, title:"All The Right Reasons", artist:"Nickelback", cover:"img/cover.jpg"},
+          {id:6, title:"All The Right Reasons", artist:"Nickelback", cover:"img/cover.jpg"},
+          {id:7, title:"All The Right Reasons", artist:"Nickelback", cover:"img/cover.jpg"}
+        ];
+
+        $scope.nowplaying = {id:1, title:"Someday", artist:"Nickelback", cover:"img/cover.jpg"};
+
   })
 
   .controller('activityCtrl', function($scope) {
@@ -52,6 +66,27 @@ angular.module('choona.controllers', [])
       $scope.$broadcast('scroll.refreshComplete');
       $scope.$apply();
     };
+
+    //Static data TODO:sort dynamic time out to text e.g. 16:10 ==> 10 minutes ago
+
+    $scope.activities = [
+      {profile:"img/profile.png", name:"Jay Vagharia", title:"Cotton Eye Joe", location:"Starbucks", message:"#ballin", socialtype:"facebook", time:"Just now"},
+      {profile:"img/profile.png", name:"Simon Kerr", title:"Barbie Girl", location:"Costa", message:"#imabarbiegirlinabarbieworld", socialtype:"twitter", time:"10 minutes ago"},
+      {profile:"img/profile.png", name:"Oliver Woodings", title:"I'm on a boat!", location:"Starbucks", message:"#lonelyislands #imonaboat", socialtype:"googleplus", time:"20 min"}
+      ]
+
+  })
+
+
+  .controller('historyCtrl', function($scope, $state) {
+
+    //Static data
+    $scope.visits = [
+      {profile:"img/starbucks.jpeg", name: "Starbucks", location: "Leicester", time: "Today"},
+      {profile:"img/starbucks.jpeg", name: "Costa", location: "Loughborough", time: "2 days ago"},
+      {profile:"img/starbucks.jpeg", name: "Starbucks", location: "Leicester", time: "3 days ago"},
+      {profile:"img/starbucks.jpeg", name: "Starbucks", location: "Loughborough", time: "A week ago"}
+    ]
 
   })
 

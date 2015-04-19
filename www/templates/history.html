@@ -1,63 +1,17 @@
-<ion-view class="history-view">
+<ion-view class="history-view" ng-controller="historyCtrl">
     <ion-content class="dark">
 
       <ion-list>
-
-        <ion-item class="item-dark card" href="#/app/history/songs">
+        <ion-item class="item-dark card" href="#/app/history/songs" ng-repeat="visit in visits">
           <div class="row">
-            <div class="profile-img col"><img class="profile-img" src="img/starbucks.jpeg"></div>
+            <div class="profile-img col"><img class="profile-img" src="{{visit.profile}}"></div>
             <div class="info col col-50">
-              <h2>Starbucks</h2>
-              <p>Leicester</p>
+              <h2>{{visit.name}}</h2>
+              <p>{{visit.location}}</p>
             </div>
-            <div class="timestamp col"><span class="bottom"> Today </span></div>
+            <div class="timestamp col"><span class="bottom"> {{visit.time}} </span></div>
           </div>
         </ion-item>
-
-        <ion-item class="item-dark card" href="#/app/history/songs">
-          <div class="row">
-            <div class="profile-img col"><img class="profile-img" src="img/starbucks.jpeg"></div>
-            <div class="info col col-50">
-              <h2>Starbucks</h2>
-              <p>Leicester</p>
-            </div>
-            <div class="timestamp col"><span class="bottom"> 2 days ago </span></div>
-          </div>
-        </ion-item>
-
-        <ion-item class="item-dark card" href="#/app/history/songs">
-          <div class="row">
-            <div class="profile-img col"><img class="profile-img" src="img/starbucks.jpeg"></div>
-            <div class="info col col-50">
-              <h2>Starbucks</h2>
-              <p>Leicester</p>
-            </div>
-            <div class="timestamp col"><span class="bottom"> 3 Days ago </span></div>
-          </div>
-        </ion-item>
-
-        <ion-item class="item-dark card" href="#/app/history/songs">
-          <div class="row">
-            <div class="profile-img col"><img class="profile-img" src="img/starbucks.jpeg"></div>
-            <div class="info col col-50">
-              <h2>Starbucks</h2>
-              <p>Leicester</p>
-            </div>
-            <div class="timestamp col"><span class="bottom"> 5 Days ago </span></div>
-          </div>
-        </ion-item>
-
-        <ion-item class="item-dark card" href="#/app/history/songs">
-          <div class="row">
-            <div class="profile-img col"><img class="profile-img" src="img/starbucks.jpeg"></div>
-            <div class="info col col-50">
-              <h2>Starbucks</h2>
-              <p>Leicester</p>
-            </div>
-            <div class="timestamp col"><span class="bottom"> A week ago </span></div>
-          </div>
-        </ion-item>
-
       </ion-list>
 
     </ion-content>

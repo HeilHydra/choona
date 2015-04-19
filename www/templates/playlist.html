@@ -5,24 +5,14 @@
 
       <div class="headerimg"><img src="img/starbucks.jpeg"/></div>
       <div class="plist">
-      <!-- ignore until we get some real data streams
-        <a ng-repeat="item in items"
-           href="#/{{item.id}}"
-           class="item item-thumbnail-left">
-
-          <img ng-src="{{ item.image }}">
-          <h2>{{ item.album }}</h2>
-          <h4>{{ item.artist }}</h4>
-        </a>
-		-->
         <ion-list>
-          <ion-item class="item-dark card item-button-right">
+          <ion-item class="item-dark card item-button-right" ng-repeat="item in items">
             <div class="album row">
               <div class="votemeter"><div upvote="20%"></div></div>
-              <div class="cover col"> <img src="img/cover.jpg"></div>
+              <div class="cover col"> <img src="{{item.cover}}"></div>
               <div class="info col">
-                <h2>Pretty Hate Machine</h2>
-                <p>Nine Inch Nails</p>
+                <h2>{{item.title}}</h2>
+                <p>{{item.artist}}</p>
               </div>
               <div class="vote col">
                 <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
@@ -30,104 +20,18 @@
               </div>
             </div>
           </ion-item>
-          <ion-item class="item-dark card item-button-right">
-            <div class="album row">
-              <div class="votemeter"><div upvote="20%"></div></div>
-              <div class="cover col"> <img src="img/cover.jpg"></div>
-              <div class="info col">
-                <h2>Pretty Hate Machine</h2>
-                <p>Nine Inch Nails</p>
-              </div>
-              <div class="vote col">
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
-              </div>
-            </div>
-          </ion-item>
-          <ion-item class="item-dark card item-button-right">
-            <div class="album row">
-              <div class="votemeter"><div upvote="20%"></div></div>
-              <div class="cover col"> <img src="img/cover.jpg"></div>
-              <div class="info col">
-                <h2>Pretty Hate Machine</h2>
-                <p>Nine Inch Nails</p>
-              </div>
-              <div class="vote col">
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
-              </div>
-            </div>
-          </ion-item>
-          <ion-item class="item-dark card item-button-right">
-            <div class="album row">
-              <div class="votemeter"><div upvote="20%"></div></div>
-              <div class="cover col"> <img src="img/cover.jpg"></div>
-              <div class="info col">
-                <h2>Pretty Hate Machine</h2>
-                <p>Nine Inch Nails</p>
-              </div>
-              <div class="vote col">
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
-              </div>
-            </div>
-          </ion-item>
-          <ion-item class="item-dark card item-button-right">
-            <div class="album row">
-              <div class="votemeter"><div upvote="20%"></div></div>
-              <div class="cover col"> <img src="img/cover.jpg"></div>
-              <div class="info col">
-                <h2>Pretty Hate Machine</h2>
-                <p>Nine Inch Nails</p>
-              </div>
-              <div class="vote col">
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
-              </div>
-            </div>
-          </ion-item>
-          <ion-item class="item-dark card item-button-right">
-            <div class="album row">
-              <div class="votemeter"><div upvote="20%"></div></div>
-              <div class="cover col"> <img src="img/cover.jpg"></div>
-              <div class="info col">
-                <h2>Pretty Hate Machine</h2>
-                <p>Nine Inch Nails</p>
-              </div>
-              <div class="vote col">
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
-              </div>
-            </div>
-          </ion-item>
-          <ion-item class="item-dark card item-button-right">
-            <div class="album row">
-              <div class="votemeter"><div upvote="20%"></div></div>
-              <div class="cover col"> <img src="img/cover.jpg"></div>
-              <div class="info col">
-                <h2>Pretty Hate Machine</h2>
-                <p>Nine Inch Nails</p>
-              </div>
-              <div class="vote col">
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
-              </div>
-            </div>
-          </ion-item>
-
-
         </ion-list>
       </div>
     </ion-content>
 
     <!-- now playing bar -->
 
-    <div class="np-wrap" ng-click="openModal()">
+    <div class="np-wrap" ng-click="openModal()" ng-repat="nowplaying in [nowplayling]">
       <div class="album row">
-        <div class="nowplaying-cover col"> <img src="img/cover.jpg"></div>
+        <div class="nowplaying-cover col"> <img src="{{nowplaying.cover}}"></div>
         <div class="nowplaying-info col">
-          <h2>Pretty Hate Machine</h2>
-          <p>Nine Inch Nails</p>
+          <h2>{{nowplaying.title}}</h2>
+          <p>{{nowplaying.artist}}</p>
         </div>
         <div class="playingicon"> <img src="img/pulse.svg"></div>
       </div>
