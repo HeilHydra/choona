@@ -1,31 +1,39 @@
-angular.module('choona', ['ionic', 'choona.controllers'])
+angular.module('choona', [
+  'ionic',
+  'choona.controllers',
+  'auth0',
+  'angular-storage',
+  'angular-jwt',
+  'btford.socket-io'])
 
-  .run(function($ionicPlatform) {
-    $ionicPlatform.ready(function() {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs)
-      if (window.cordova && window.cordova.plugins.Keyboard) {
-        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      }
-      if (window.StatusBar) {
-        StatusBar.styleDefault();
-      }
-    });
-  })
+  .config(function($stateProvider, $urlRouterProvider, authProvider) {
 
-  .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('intro', {
-        url: "/",
+        url: "/intro",
         templateUrl: 'templates/intro.html',
         controller: 'introCtrl'
+      })
+
+      .state('login', {
+        url: "/login",
+        templateUrl: 'templates/login.html',
+        controller: 'loginCtrl'
+      })
+
+      .state('loading', {
+        url: '/loading',
+        templateUrl: 'templates/loading.html'
       })
 
       .state('app', {
         url: "/app",
         abstract: true,
         templateUrl: 'templates/menu.html',
-        controller: 'AppCtrl'
+        controller: 'appCtrl',
+        data: {
+          requiresLogin: true
+        }
       })
 
       .state('app.playlist', {
@@ -35,6 +43,9 @@ angular.module('choona', ['ionic', 'choona.controllers'])
             templateUrl: "templates/playlist.html",
             controller: 'playlistCtrl'
           }
+        },
+        data: {
+          requiresLogin: true
         }
       })
 
@@ -44,6 +55,9 @@ angular.module('choona', ['ionic', 'choona.controllers'])
           'menuContent': {
             templateUrl: "templates/activity.html"
           }
+        },
+        data: {
+          requiresLogin: true
         }
       })
 
@@ -53,6 +67,9 @@ angular.module('choona', ['ionic', 'choona.controllers'])
           'menuContent': {
             templateUrl: "templates/history.html",
           }
+        },
+        data: {
+          requiresLogin: true
         }
       })
 
@@ -62,6 +79,9 @@ angular.module('choona', ['ionic', 'choona.controllers'])
           'menuContent': {
             templateUrl: "templates/history-detail.html",
           }
+        },
+        data: {
+          requiresLogin: true
         }
       })
 
@@ -71,8 +91,80 @@ angular.module('choona', ['ionic', 'choona.controllers'])
           'menuContent': {
             templateUrl: "templates/settings.html"
           }
+        },
+        data: {
+          requiresLogin: true
         }
       });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.when(/^\/?$/, '/login');
+
+    authProvider.init({
+      domain: 'choona.eu.auth0.com',
+      clientID: 'ayp76kQ1YxZJfLnY7TUKRj5KdiHcHSAH',
+      loginState: 'login'
+    });
+  })
+
+  .factory('socket', function (socketFactory) {
+    return socketFactory({
+      ioSocket: io.connect('api.choona.net')
+    });
+  })
+
+  .run(function($ionicPlatform, auth, $rootScope, jwtHelper, store, $state, socket) {
+    $ionicPlatform.ready(function() {
+      if (window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      }
+      if (window.StatusBar) {
+        StatusBar.styleDefault();
+      }
+    });
+
+    auth.hookEvents();
+
+    $rootScope.$on('$stateChangeStart', function(event, toState) {
+      if (toState.name !== 'intro' && !store.get('didTutorial')) {
+        event.preventDefault();
+        $state.go('intro');
+      }
+
+      else if (toState.name === 'intro' && store.get('didTutorial')) {
+        event.preventDefault();
+        $state.go('app.playlist');
+      }
+
+      else if (!auth.isAuthenticated) {
+        var token = store.get('token');
+        if (token) {
+          if (!jwtHelper.isTokenExpired(token)) {
+            auth.authenticate(store.get('profile'), token);
+            socket.emit('authenticate', { token: token });
+          } else if (toState.name !== 'login') {
+            return $state.go('login');
+          }
+        }
+      }
+
+      else if (toState.name.substring(0, 3) === "app" && !$rootScope.status) {
+        event.preventDefault();
+        $state.go('loading');
+      }
+
+      else if (toState.name === 'login' && auth.isAuthenticated) {
+        event.preventDefault();
+        $state.go('app.playlist');
+      }
+    });
+
+    socket.on('playlist:init', function (data) {
+      $rootScope.queue = data.queue;
+      $rootScope.status = data.status;
+      $state.go('app.playlist');
+    });
+
+    socket.on('authenticated', function () {
+      socket.emit("playlist:join", { playlistId: 1 });
+    });
   });

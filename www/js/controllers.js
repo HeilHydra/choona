@@ -1,25 +1,40 @@
 angular.module('choona.controllers', [])
 
-  .controller('AppCtrl', function() {
-
+  .controller('appCtrl', function ($scope, store) {
+    $scope.profile = store.get('profile');
+    $scope.name = $scope.profile.given_name || $scope.profile.name;
   })
 
-  .controller('loginCtrl', function($scope, $state) {
-    $scope.startApp = function() {
-      $state.go('app.playlist');
+  .controller('introCtrl', function ($scope, $state, store) {
+    $scope.activeSlide = 0;
+
+    $scope.finishedTutorial = function () {
+      store.set('didTutorial', true);
+      $state.go('login');
     };
   })
 
-  .controller('intCtrl', function($scope, $state) {
-    $scope.myActiveSlide = 0;
-
-    $scope.startApp = function() {
-      $state.go('app.playlist');
+  .controller('loginCtrl', function ($scope, auth, store, $state, socket) {
+    var signinOpts = {
+      container: 'lock-container',
+      icon: 'img/choona-animated.svg',
+      authParams: {
+        scope: 'openid offline_access',
+        device: 'Mobile device'
+      }
     };
+
+    auth.signin(signinOpts, onAuthSuccess);
+
+    function onAuthSuccess(profile, token, accessToken, state, refreshToken) {
+      store.set('profile', profile);
+      store.set('token', token);
+      store.set('refreshToken', refreshToken);
+      socket.emit('authenticate', { token: token });
+    }
   })
 
-  .controller('playlistCtrl', function($scope, $ionicModal) {
-
+  .controller('playlistCtrl', function ($scope, $ionicModal) {
     $ionicModal.fromTemplateUrl('templates/nowplaying.html', {
       scope: $scope,
       animation: 'slide-in-up'
@@ -44,120 +59,39 @@ angular.module('choona.controllers', [])
       $scope.$apply();
     };
 
-    //Staic data
-
-        $scope.items = [
-          {id:1, title: "Gotta Be Somebody", artist:"Nickelback", cover:"img/cover.jpg"},
-          {id:2, title:"Dark Horse", artist:"Nicelback", cover:"img/cover.jpg"},
-          {id:3, title:"Someday", artist:"Nickelback", cover:"img/cover.jpg"},
-          {id:4, title:"All The Right Reasons", artist:"Nickelback", cover:"img/cover.jpg"},
-          {id:5, title:"All The Right Reasons", artist:"Nickelback", cover:"img/cover.jpg"},
-          {id:6, title:"All The Right Reasons", artist:"Nickelback", cover:"img/cover.jpg"},
-          {id:7, title:"All The Right Reasons", artist:"Nickelback", cover:"img/cover.jpg"}
-        ];
-
-        $scope.nowplaying = {id:1, title:"Someday", artist:"Nickelback", cover:"img/cover.jpg"};
+    $scope.items = [
+      { id:1, title: 'Gotta Be Somebody', artist: 'Nickelback', cover: 'img/cover.jpg' },
+      { id:2, title: 'Dark Horse', artist: 'Nicelback', cover: 'img/cover.jpg' },
+      { id:3, title: 'Someday', artist: 'Nickelback', cover: 'img/cover.jpg' },
+      { id:4, title: 'All The Right Reasons', artist: 'Nickelback', cover: 'img/cover.jpg' },
+      { id:5, title: 'All The Right Reasons', artist: 'Nickelback', cover: 'img/cover.jpg' },
+      { id:6, title: 'All The Right Reasons', artist: 'Nickelback', cover: 'img/cover.jpg' },
+      { id:7, title: 'All The Right Reasons', artist: 'Nickelback', cover: 'img/cover.jpg' }
+    ];
+    $scope.nowplaying = { id: 1, title: 'Someday', artist: 'Nickelback', cover: 'img/cover.jpg' };
 
   })
 
-  .controller('activityCtrl', function($scope) {
-
-    $scope.doRefresh = function() {
+  .controller('activityCtrl', function ($scope) {
+    $scope.doRefresh = function () {
       $scope.$broadcast('scroll.refreshComplete');
       $scope.$apply();
     };
 
-    //Static data TODO:sort dynamic time out to text e.g. 16:10 ==> 10 minutes ago
-
+    // TODO: sort dynamic time out to text e.g. 16:10 ==> 10 minutes ago
     $scope.activities = [
-      {profile:"img/profile.png", name:"Jay Vagharia", title:"Cotton Eye Joe", location:"Starbucks", message:"#ballin", socialtype:"facebook", time:"Just now"},
-      {profile:"img/profile.png", name:"Simon Kerr", title:"Barbie Girl", location:"Costa", message:"#imabarbiegirlinabarbieworld", socialtype:"twitter", time:"10 minutes ago"},
-      {profile:"img/profile.png", name:"Oliver Woodings", title:"I'm on a boat!", location:"Starbucks", message:"#lonelyislands #imonaboat", socialtype:"googleplus", time:"20 min"}
-      ]
+      { profile: 'img/profile.png', name: 'Jay Vagharia', title: 'Cotton Eye Joe', location: 'Starbucks', message: '#ballin', socialtype:'facebook', time: 'Just now' },
+      { profile: 'img/profile.png', name: 'Simon Kerr', title: 'Barbie Girl', location: 'Costa', message: '#imabarbiegirlinabarbieworld', socialtype:'twitter', time: '10 minutes ago' },
+      { profile: 'img/profile.png', name: 'Oliver Woodings', title: 'I\'m on a boat!', location: 'Starbucks', message: '#lonelyisland #imonaboat', socialtype: 'googleplus', time: '20 min' }
+    ];
 
   })
 
-
-  .controller('historyCtrl', function($scope, $state) {
-
-    //Static data
+  .controller('historyCtrl', function($scope) {
     $scope.visits = [
-      {profile:"img/starbucks.jpeg", name: "Starbucks", location: "Leicester", time: "Today"},
-      {profile:"img/starbucks.jpeg", name: "Costa", location: "Loughborough", time: "2 days ago"},
-      {profile:"img/starbucks.jpeg", name: "Starbucks", location: "Leicester", time: "3 days ago"},
-      {profile:"img/starbucks.jpeg", name: "Starbucks", location: "Loughborough", time: "A week ago"}
-    ]
-
-  })
-
-  .controller('introCtrl', function($scope, $state) {
-
-    // Called to navigate to the main app
-    var startApp = function() {
-      $state.go('main');
-
-      // Set a flag that we finished the tutorial
-      window.localStorage['didTutorial'] = true;
-    };
-
-    // Check if the user already did the tutorial and skip it if so
-    if (window.localStorage['didTutorial'] === "true") {
-      startApp();
-    } else {
-      setTimeout(function() {
-        navigator.splashscreen.hide();
-      }, 750);
-    }
-
-
-    // Move to the next slide
-    $scope.next = function() {
-      $scope.$broadcast('slideBox.nextSlide');
-    };
-
-    // Our initial right buttons
-    var rightButtons = [{
-      content: 'Next',
-      type: 'button-positive button-clear',
-      tap: function() {
-        // Go to the next slide on tap
-        $scope.next();
-      }
-    }];
-
-    // Our initial left buttons
-    var leftButtons = [{
-      content: 'Skip',
-      type: 'button-positive button-clear',
-      tap: function() {
-        // Start the app on tap
-        startApp();
-      }
-    }];
-
-    // Bind the left and right buttons to the scope
-    $scope.leftButtons = leftButtons;
-    $scope.rightButtons = rightButtons;
-
-
-    // Called each time the slide changes
-    $scope.slideChanged = function(index) {
-
-      // Check if we should update the left buttons
-      if (index > 0) {
-        // If this is not the first slide, give it a back button
-        $scope.leftButtons = [{
-          content: 'Back',
-          type: 'button-positive button-clear',
-          tap: function() {
-            // Move to the previous slide
-            $scope.$broadcast('slideBox.prevSlide');
-          }
-        }];
-      } else {
-        // This is the first slide, use the default left buttons
-        $scope.leftButtons = leftButtons;
-      }
-
-    };
+      { profile: 'img/starbucks.jpeg', name: 'Starbucks', location: 'Leicester', time: 'Today' },
+      { profile: 'img/starbucks.jpeg', name: 'Costa', location: 'Loughborough', time: '2 days ago' },
+      { profile: 'img/starbucks.jpeg', name: 'Starbucks', location: 'Leicester', time: '3 days ago' },
+      { profile: 'img/starbucks.jpeg', name: 'Starbucks', location: 'Loughborough', time: 'A week ago' }
+    ];
   });
