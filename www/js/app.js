@@ -108,7 +108,7 @@ angular.module('choona', [
 
   .factory('socket', function (socketFactory) {
     return socketFactory({
-      ioSocket: io.connect('localhost:8080')
+      ioSocket: io.connect('api.choona.net')
     });
   })
 

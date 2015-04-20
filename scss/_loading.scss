@@ -1,0 +1,12 @@
+.loading-view {
+  background: $dark;
+  display: table;
+  text-align: center;
+
+  .spinner {
+    display: table-cell;
+    fill: white;
+    stroke: white;
+    vertical-align: middle;
+  }
+}

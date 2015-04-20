@@ -8160,3 +8160,13 @@ a.button {
       color: white; }
     .login-view #a0-lock .a0-popup .a0-overlay .a0-panel, .login-view #a0-widget .a0-popup .a0-overlay .a0-panel {
       background: transparent; } }
+
+.loading-view {
+  background: #191919;
+  display: table;
+  text-align: center; }
+  .loading-view .spinner {
+    display: table-cell;
+    fill: white;
+    stroke: white;
+    vertical-align: middle; }

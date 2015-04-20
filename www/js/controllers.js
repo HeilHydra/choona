@@ -27,7 +27,6 @@ angular.module('choona.controllers', [])
     auth.signin(signinOpts, onAuthSuccess);
 
     function onAuthSuccess(profile, token, accessToken, state, refreshToken) {
-      console.log('AUTHENTICATED');
       store.set('profile', profile);
       store.set('token', token);
       store.set('refreshToken', refreshToken);
