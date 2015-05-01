@@ -1,0 +1,27 @@
+<ion-view class="search-view dark" ng-controller="searchCtrl" >
+  <div class="search-info">
+    <div ng-if="searchText.length === 0">
+      Start typing to search
+    </div>
+    <ion-spinner ng-if="searching"></ion-spinner>
+    <div ng-if="searchResults.length === 0 && searchText.length > 0 && !searching">
+      No results
+    </div>
+  </div>
+  <div ng-if="searchResults.length > 0">
+    <ion-content>
+      <ion-list>
+        <ion-item class="item-dark card item-button-right" ng-repeat="item in searchResults">
+          <div class="album row">
+            <div class="cover col"><img src="{{item.cover.small}}"></div>
+            <div class="info col">
+              <h2>{{item.title}}</h2>
+              <p>{{item.artist}}</p>
+            </div>
+            <button class="button button-icon icon search-icon ion-plus-round" ng-click="addTrack(item.id)"></button>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </div>
+</ion-view>

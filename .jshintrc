@@ -39,6 +39,7 @@
     "angular": true,
     "cordova": true,
     "StatusBar": true,
-    "io": true
+    "io": true,
+    "moment": true
   }
 }

@@ -10,15 +10,13 @@ angular.module('choona', [
 
     $stateProvider
       .state('intro', {
-        url: "/intro",
-        templateUrl: 'templates/intro.html',
-        controller: 'introCtrl'
+        url: '/intro',
+        templateUrl: 'templates/intro.html'
       })
 
       .state('login', {
-        url: "/login",
-        templateUrl: 'templates/login.html',
-        controller: 'loginCtrl'
+        url: '/login',
+        templateUrl: 'templates/login.html'
       })
 
       .state('loading', {
@@ -27,21 +25,31 @@ angular.module('choona', [
       })
 
       .state('app', {
-        url: "/app",
+        url: '/app',
         abstract: true,
         templateUrl: 'templates/menu.html',
-        controller: 'appCtrl',
         data: {
           requiresLogin: true
         }
       })
 
       .state('app.playlist', {
-        url: "/playlist",
+        url: '/playlist',
         views: {
           'menuContent': {
-            templateUrl: "templates/playlist.html",
-            controller: 'playlistCtrl'
+            templateUrl: 'templates/playlist.html'
+          }
+        },
+        data: {
+          requiresLogin: true
+        }
+      })
+
+      .state('app.search', {
+        url: '/search',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/search.html'
           }
         },
         data: {
@@ -50,10 +58,10 @@ angular.module('choona', [
       })
 
       .state('app.activity', {
-        url: "/activity",
+        url: '/activity',
         views: {
           'menuContent': {
-            templateUrl: "templates/activity.html"
+            templateUrl: 'templates/activity.html'
           }
         },
         data: {
@@ -62,10 +70,10 @@ angular.module('choona', [
       })
 
       .state('app.history', {
-        url: "/history",
+        url: '/history',
         views: {
           'menuContent': {
-            templateUrl: "templates/history.html",
+            templateUrl: 'templates/history.html',
           }
         },
         data: {
@@ -74,10 +82,10 @@ angular.module('choona', [
       })
 
       .state('app.historysongs', {
-        url: "/history/songs",
+        url: '/history/songs',
         views: {
           'menuContent': {
-            templateUrl: "templates/history-detail.html",
+            templateUrl: 'templates/history-detail.html',
           }
         },
         data: {
@@ -86,10 +94,10 @@ angular.module('choona', [
       })
 
       .state('app.settings', {
-        url: "/settings",
+        url: '/settings',
         views: {
           'menuContent': {
-            templateUrl: "templates/settings.html"
+            templateUrl: 'templates/settings.html'
           }
         },
         data: {
@@ -108,13 +116,13 @@ angular.module('choona', [
 
   .factory('socket', function (socketFactory) {
     return socketFactory({
-      ioSocket: io.connect('api.choona.net')
+      ioSocket: io.connect('http://api.choona.net')
     });
   })
 
   .run(function($ionicPlatform, auth, $rootScope, jwtHelper, store, $state, socket) {
-    $ionicPlatform.ready(function() {
-      if (window.cordova && window.cordova.plugins.Keyboard) {
+    $ionicPlatform.ready(function () {
+      if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       }
       if (window.StatusBar) {
@@ -147,7 +155,7 @@ angular.module('choona', [
         }
       }
 
-      else if (toState.name.substring(0, 3) === "app" && !$rootScope.status) {
+      else if (toState.name.substring(0, 3) === 'app' && !$rootScope.status) {
         event.preventDefault();
         $state.go('loading');
       }
@@ -158,6 +166,52 @@ angular.module('choona', [
       }
     });
 
+    $rootScope.status = {
+      playing: null,
+      position: 0
+    };
+    $rootScope.progressPercent = 0;
+    $rootScope.progressTime = moment.duration(0, "seconds");
+    $rootScope.timeRemaining = moment.duration(0, "seconds");
+
+    function updateNowPlaying() {
+      var status = $rootScope.status;
+      status.position++;
+      var width = 0;
+      if (status.playing !== null) {
+        width = 100 / (status.playing.track.length / 1000) * status.position;
+        $rootScope.progressTime = moment.utc(status.position * 1000);
+        $rootScope.timeRemaining = moment.utc(status.playing.track.length - status.position * 1000);
+      }
+      if (width > 100) {
+        width = 100;
+      }
+      $rootScope.progressPercent = width;
+      $rootScope.$apply();
+    }
+
+    setInterval(updateNowPlaying, 1000);
+
+    socket.on('playlist:empty', function () {
+      $rootScope.queue = [];
+      $rootScope.status.playing = null;
+      $rootScope.status.position = 0;
+      $rootScope.$broadcast('queue-empty');
+    });
+
+    socket.on('playlist:queue', function (data) {
+      $rootScope.queue = data;
+    });
+
+    socket.on('playlist:playing', function (data) {
+      $rootScope.status.playing = data;
+      $rootScope.status.position = 0;
+    });
+
+    socket.on('playlist:data', function () {
+      console.log('I GOT DATA');
+    });
+
     socket.on('playlist:init', function (data) {
       $rootScope.queue = data.queue;
       $rootScope.status = data.status;
@@ -165,6 +219,6 @@ angular.module('choona', [
     });
 
     socket.on('authenticated', function () {
-      socket.emit("playlist:join", { playlistId: 1 });
+      socket.emit('playlist:join', { playlistId: 1 });
     });
   });

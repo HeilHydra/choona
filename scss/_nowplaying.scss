@@ -59,10 +59,6 @@
     }
 
     .cover-full {
-      background-image: linear-gradient(
-        rgba(0, 0, 0, 0.30),
-        rgba(0, 0, 0, 0.30)
-        ), url("../img/cover.jpg");
       background-repeat: no-repeat;
       background-size:cover;
       min-width:200px;
