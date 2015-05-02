@@ -5,17 +5,17 @@
       <button class="button round-overlay-button"><i class="icon ion-android-share-alt"></i></button>
     </div>
 
-    <div class="nowplaying-info">
-      <h2>{{status.playing.track.title}}</h2>
-      <p>{{status.playing.track.artist}}</p>
-    </div>
-    <div class="song-time row">
-      <div class="elapsed col">{{progressTime.format("m:ss")}}</div>
-      <div class="remaining col">{{"-" + timeRemaining.format("m:ss")}}</div>
-    </div>
-    <div class="scrubber">
-      <div class="progress" ng-style="{ 'width': progressPercent + '%' }">
-        <div class="circle"></div>
+    <div class="song-info">
+      <div class="song-title">
+        <h2>{{status.playing.track.title}}</h2>
+        <p>{{status.playing.track.artist}}</p>
+      </div>
+      <div class="elapsed">{{progressTime.format("m:ss")}}</div>
+      <div class="remaining">{{"-" + timeRemaining.format("m:ss")}}</div>
+      <div class="scrubber">
+        <div class="progress" ng-style="{ 'width': progressPercent + '%' }">
+          <div class="circle"></div>
+        </div>
       </div>
     </div>
   </ion-content>

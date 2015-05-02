@@ -7679,6 +7679,8 @@ a.button {
     padding: 2px;
     padding-top: 0px;
     padding-bottom: 0px; }
+    .playlist-view .item h2 {
+      margin-top: 3px; }
   .playlist-view .votemeter {
     position: absolute;
     top: 0px;
@@ -7702,15 +7704,12 @@ a.button {
   .playlist-view .info {
     padding-left: 15px;
     font-size: 10px; }
-  .playlist-view .info h2 {
-    word-wrap: break-word;
-    white-space: normal; }
   .playlist-view .vote {
-    max-width: 120px;
-    width: 120px;
+    max-width: 110px;
+    width: 110px;
     max-height: inherit;
     height: inherit;
-    padding: 8px 10px; }
+    padding: 8px 0 8px 10px; }
     .playlist-view .vote .button {
       min-width: 42px;
       min-height: 42px;
@@ -7845,18 +7844,9 @@ a.button {
   background: #191919;
   left: 0px;
   width: 100%;
-  bottom: 0px; }
+  bottom: 0px;
+  top: 0px; }
 
-.nowplaying-view .nowplaying-info {
-  text-align: center;
-  padding: 40px; }
-.nowplaying-view .nowplaying-info h2 {
-  font-size: 30px;
-  color: #fff; }
-.nowplaying-view .nowplaying-info p {
-  font-size: 16px;
-  color: #fff;
-  line-height: 1px; }
 .nowplaying-view .button-light {
   border-color: #ffffff;
   color: #ffffff;
@@ -7887,10 +7877,8 @@ a.button {
 .nowplaying-view .cover-full {
   background-repeat: no-repeat;
   background-size: cover;
-  min-width: 200px;
-  min-height: 400px;
+  height: 50%;
   width: 100%;
-  height: auto;
   position: relative; }
 .nowplaying-view .round-overlay-button {
   width: 56px;
@@ -7907,19 +7895,38 @@ a.button {
     opacity: 1;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2);
     background-color: #e24c01; }
-.nowplaying-view .song-time {
-  color: #fff; }
-  .nowplaying-view .song-time .remaining {
-    text-align: right; }
-.nowplaying-view .scrubber {
+.nowplaying-view .song-info {
+  height: 50%;
   position: relative;
-  width: 100%;
-  height: 5px;
-  background-color: #772E08; }
-.nowplaying-view .progress {
-  width: 50px;
-  height: 5px;
-  background-color: #fe6718; }
+  color: white; }
+  .nowplaying-view .song-info .song-title {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -60px;
+    text-align: center; }
+    .nowplaying-view .song-info .song-title h2, .nowplaying-view .song-info .song-title p {
+      color: white; }
+  .nowplaying-view .song-info .elapsed {
+    position: absolute;
+    bottom: 15px;
+    left: 5px; }
+  .nowplaying-view .song-info .remaining {
+    text-align: right;
+    position: absolute;
+    bottom: 15px;
+    right: 5px; }
+  .nowplaying-view .song-info .scrubber {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background-color: #772E08;
+    bottom: 0;
+    left: 0; }
+  .nowplaying-view .song-info .progress {
+    width: 50px;
+    height: 10px;
+    background-color: #fe6718; }
 
 .history-view .dark {
   background-color: #191919; }
@@ -8214,11 +8221,13 @@ a.button {
 .search-view {
   background-color: #191919; }
   .search-view .search-info {
+    box-sizing: border-box;
     text-align: center;
     color: white;
     display: table;
     height: 100%;
-    width: 100%; }
+    width: 100%;
+    padding-top: 43px; }
   .search-view h2, .search-view p {
     color: #ffffff; }
   .search-view .search-info > * {
@@ -8231,6 +8240,8 @@ a.button {
     padding: 2px;
     padding-top: 0px;
     padding-bottom: 0px; }
+    .search-view .item h2 {
+      margin-top: 3px; }
   .search-view .album > .cover {
     max-height: 60px;
     max-width: 60px;

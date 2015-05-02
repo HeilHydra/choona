@@ -1,6 +1,6 @@
 angular.module('choona.controllers', [])
 
-  .controller('appCtrl', function ($scope, store, $state, socket) {
+  .controller('appCtrl', function ($scope, store, $state, socket, $rootScope) {
     $scope.profile = store.get('profile');
     $scope.name = $scope.profile.given_name || $scope.profile.name;
 
@@ -14,18 +14,23 @@ angular.module('choona.controllers', [])
     $scope.searching = false;
     $scope.searchResults = [];
 
-    $scope.toggleSearchInput = function () {
-      var show = !$scope.showSearchInput;
-      $scope.showSearchInput = show;
-      var className = 'button button-icon icon search-icon ';
-      className += show ? 'ion-minus-round' : 'ion-plus-round';
-      $scope.iconClass = className;
-      if (show) {
+    $scope.handleSearchClick = function () {
+      if (!$scope.showSearchInput) {
         $state.go('app.search');
       } else {
         $state.go('app.playlist');
       }
     };
+
+    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState) {
+      if (fromState.name === "app.search" || toState.name === "app.search") {
+        var show = !$scope.showSearchInput;
+        $scope.showSearchInput = show;
+        var className = 'button button-icon icon search-icon ';
+        className += show ? 'ion-minus-round' : 'ion-plus-round';
+        $scope.iconClass = className;
+      }
+    });
 
     $scope.handleSearch = function () {
       var searchText = $scope.search.text;
@@ -52,6 +57,9 @@ angular.module('choona.controllers', [])
   .controller('searchCtrl', function ($scope, socket) {
     $scope.addTrack = function (trackId) {
       socket.emit('playlist:add', trackId);
+      $scope.searchResults = $scope.searchResults.filter(function (result) {
+        return result.id !== trackId;
+      });
     };
   })
 
@@ -109,7 +117,7 @@ angular.module('choona.controllers', [])
     };
 
     $scope.$on('queue-empty', function () {
-      $scope.modal.remove();
+      $scope.modal.hide();
     });
 
     $scope.$on('$destroy', function () {

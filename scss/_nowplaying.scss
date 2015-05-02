@@ -1,117 +1,126 @@
 .nowplaying-modal{
-  background:#191919;
-  left:0px;
-  width:100%;
-  bottom:0px;
+  background: #191919;
+  left: 0px;
+  width: 100%;
+  bottom: 0px;
+  top: 0px;
 }
 
 .nowplaying-view {
 
-    .nowplaying-info{
-      text-align:center;
-      padding:40px;
+  .button-light{
+    border-color:#ffffff;
+    color:#ffffff;
+    min-height:40px;
+    min-width:40px;
+    height:40px;
+    width:40px;
+    border:0px;
+    padding:0px;
+    position:absolute;
+    top:10px;
+    right:10px;
+    z-index:10;
+  }
+
+  .nowplaying-cover {
+    width:100%;
+    margin: 0 auto;
+    text-align:center;
+  }
+
+  .nowplaying-cover img{
+    min-width:200px;
+    min-height:200px;
+    width:80%;
+    height:80%;
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+  }
+
+  .close-playlist{
+    float:right;
+  }
+
+  .cover-full {
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 50%;
+    width: 100%;
+    position:relative;
+  }
+
+  $material-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.26) !default;
+  $material-shadow-pressed: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2) !default;
+  $orange: #fe6718;
+
+  .round-overlay-button{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    border:none;
+    background-color:#fe6718;
+
+    position:absolute;
+    bottom:-28px;
+    right:20px;
+
+    box-shadow: $material-shadow;
+    transition: all linear 220ms;
+
+    &.activated{
+      opacity: 1;
+      box-shadow:$material-shadow-pressed;
+      background-color: darken($orange, 10%);
     }
+  }
 
-    .nowplaying-info h2 {
-      font-size:30px; //font-size: 16px;
-      color:#fff;
-    }
+  .song-info {
+    height: 50%;
+    position: relative;
+    color: white;
 
-    .nowplaying-info p{
-      font-size: 16px;
-      color:#fff;
-      line-height: 1px;
-    }
+    .song-title {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      margin-top: -60px;
+      text-align: center;
 
-    .button-light{
-      border-color:#ffffff;
-      color:#ffffff;
-      min-height:40px;
-      min-width:40px;
-      height:40px;
-      width:40px;
-      border:0px;
-      padding:0px;
-      position:absolute;
-      top:10px;
-      right:10px;
-      z-index:10;
-    }
-
-    .nowplaying-cover {
-      width:100%;
-      margin: 0 auto;
-      text-align:center;
-    }
-
-    .nowplaying-cover img{
-      min-width:200px;
-      min-height:200px;
-      width:80%;
-      height:80%;
-      border-radius: 500px;
-      -webkit-border-radius: 500px;
-      -moz-border-radius: 500px;
-    }
-
-    .close-playlist{
-      float:right;
-    }
-
-    .cover-full {
-      background-repeat: no-repeat;
-      background-size:cover;
-      min-width:200px;
-      min-height:400px;
-      width:100%;
-      height:auto;
-      position:relative;
-    }
-
-      $material-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.26) !default;
-      $material-shadow-pressed: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2) !default;
-      $orange: #fe6718;
-
-    .round-overlay-button{
-      width:56px;
-      height:56px;
-      border-radius:50%;
-      border:none;
-      background-color:#fe6718;
-
-      position:absolute;
-      bottom:-28px;
-      right:20px;
-
-      box-shadow: $material-shadow;
-      transition: all linear 220ms;
-
-      &.activated{
-        opacity: 1;
-        box-shadow:$material-shadow-pressed;
-        background-color: darken($orange, 10%);
+      h2, p {
+        color: white;
       }
     }
 
-    .song-time{
-      color:#fff;
+    .elapsed {
+      position: absolute;
+      bottom: 15px;
+      left: 5px;
+    }
 
-      .remaining{
-        text-align:right;
-      }
+    .remaining {
+      text-align: right;
+      position: absolute;
+      bottom: 15px;
+      right: 5px;
     }
 
     .scrubber{
-      position:relative;
-      width:100%;
-      height:5px;
-      background-color:#772E08;
+      position: absolute;
+      width: 100%;
+      height: 10px;
+      background-color: #772E08;
+      bottom: 0;
+      left: 0;
     }
 
     .progress{
-      width:50px;
-      height:5px;
-      background-color:#fe6718;
+      width: 50px;
+      height: 10px;
+      background-color: #fe6718;
     }
+  }
 
- }
+
+}
