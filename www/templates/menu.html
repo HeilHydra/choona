@@ -9,7 +9,7 @@
       </ion-nav-buttons>
       <ion-nav-buttons side="right">
         <div class="search-container" ng-show="showSearchInput">
-          <input class="search-input" type="text" ng-model="search.text" ng-model-options="{ debounce: {'default': 500} }" ng-change="handleSearch()" placeholder="Song, artist, album..." />
+          <input class="search-input" id="search-input" type="text" ng-model="search.text" ng-model-options="{ debounce: {'default': 500} }" ng-change="handleSearch()" placeholder="Song, artist, album..." />
         </div>
         <button ng-attr-class="{{iconClass}}" ng-click="handleSearchClick()"></button>
       </ion-nav-buttons>

@@ -61,6 +61,9 @@ angular.module('choona.controllers', [])
         return result.id !== trackId;
       });
     };
+    setTimeout(function () {
+      document.getElementById("search-input").focus();
+    }, 0);
   })
 
   .controller('introCtrl', function ($scope, $state, store) {
