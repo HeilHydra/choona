@@ -1,8 +1,69 @@
 angular.module('choona.controllers', [])
 
-  .controller('appCtrl', function ($scope, store) {
+  .controller('appCtrl', function ($scope, store, $state, socket, $rootScope) {
     $scope.profile = store.get('profile');
     $scope.name = $scope.profile.given_name || $scope.profile.name;
+
+    $scope.showSearchInput = false;
+    $scope.search = {
+      text: ''
+    };
+    $scope.iconClass = 'button button-icon icon search-icon ion-plus-round';
+
+    $scope.searchText = '';
+    $scope.searching = false;
+    $scope.searchResults = [];
+
+    $scope.handleSearchClick = function () {
+      if (!$scope.showSearchInput) {
+        $state.go('app.search');
+      } else {
+        $state.go('app.playlist');
+      }
+    };
+
+    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState) {
+      if (fromState.name === "app.search" || toState.name === "app.search") {
+        var show = !$scope.showSearchInput;
+        $scope.showSearchInput = show;
+        var className = 'button button-icon icon search-icon ';
+        className += show ? 'ion-minus-round' : 'ion-plus-round';
+        $scope.iconClass = className;
+      }
+    });
+
+    $scope.handleSearch = function () {
+      var searchText = $scope.search.text;
+      $scope.searchText = searchText;
+      $scope.searchResults = [];
+      if (searchText.length > 0) {
+        $scope.searching = true;
+        doSearch(searchText);
+      } else {
+        $scope.searching = false;
+      }
+    };
+
+    function doSearch(searchString) {
+      socket.emit('playlist:search', searchString, function (searchResults) {
+        if ($scope.search.text === searchString) {
+          $scope.searching = false;
+          $scope.searchResults = searchResults;
+        }
+      });
+    }
+  })
+
+  .controller('searchCtrl', function ($scope, socket) {
+    $scope.addTrack = function (trackId) {
+      socket.emit('playlist:add', trackId);
+      $scope.searchResults = $scope.searchResults.filter(function (result) {
+        return result.id !== trackId;
+      });
+    };
+    setTimeout(function () {
+      document.getElementById("search-input").focus();
+    }, 0);
   })
 
   .controller('introCtrl', function ($scope, $state, store) {
@@ -34,7 +95,7 @@ angular.module('choona.controllers', [])
     }
   })
 
-  .controller('playlistCtrl', function ($scope, $ionicModal) {
+  .controller('playlistCtrl', function ($scope, $ionicModal, socket) {
     $ionicModal.fromTemplateUrl('templates/nowplaying.html', {
       scope: $scope,
       animation: 'slide-in-up'
@@ -42,34 +103,29 @@ angular.module('choona.controllers', [])
       $scope.modal = modal;
     });
 
-    $scope.openModal = function() {
+    $scope.openModal = function () {
       $scope.modal.show();
     };
 
-    $scope.closeModal = function() {
+    $scope.closeModal = function () {
       $scope.modal.hide();
     };
 
-    $scope.$on('$destroy', function() {
-      $scope.modal.remove();
-    });
-
-    $scope.doRefresh = function() {
-      $scope.$broadcast('scroll.refreshComplete');
-      $scope.$apply();
+    $scope.upvote = function (trackId) {
+      socket.emit("playlist:upvote", trackId);
     };
 
-    $scope.items = [
-      { id:1, title: 'Gotta Be Somebody', artist: 'Nickelback', cover: 'img/cover.jpg' },
-      { id:2, title: 'Dark Horse', artist: 'Nicelback', cover: 'img/cover.jpg' },
-      { id:3, title: 'Someday', artist: 'Nickelback', cover: 'img/cover.jpg' },
-      { id:4, title: 'All The Right Reasons', artist: 'Nickelback', cover: 'img/cover.jpg' },
-      { id:5, title: 'All The Right Reasons', artist: 'Nickelback', cover: 'img/cover.jpg' },
-      { id:6, title: 'All The Right Reasons', artist: 'Nickelback', cover: 'img/cover.jpg' },
-      { id:7, title: 'All The Right Reasons', artist: 'Nickelback', cover: 'img/cover.jpg' }
-    ];
-    $scope.nowplaying = { id: 1, title: 'Someday', artist: 'Nickelback', cover: 'img/cover.jpg' };
+    $scope.downvote = function (trackId) {
+      socket.emit("playlist:downvote", trackId);
+    };
 
+    $scope.$on('queue-empty', function () {
+      $scope.modal.hide();
+    });
+
+    $scope.$on('$destroy', function () {
+      $scope.modal.remove();
+    });
   })
 
   .controller('activityCtrl', function ($scope) {

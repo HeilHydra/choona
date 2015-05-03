@@ -1,39 +1,45 @@
 <ion-view class="playlist-view" ng-controller="playlistCtrl" >
-    <ion-content class="dark">
+  <ion-content class="dark">
 
-      <ion-refresher spinner="ripple" pulling-text="Pull to refresh" on-refresh="doRefresh()" ></ion-refresher>
-
-      <div class="headerimg"><img src="img/starbucks.jpeg"/></div>
-      <div class="plist">
-        <ion-list>
-          <ion-item class="item-dark card item-button-right" ng-repeat="item in items">
-            <div class="album row">
-              <div class="votemeter"><div upvote="20%"></div></div>
-              <div class="cover col"> <img src="{{item.cover}}"></div>
-              <div class="info col">
-                <h2>{{item.title}}</h2>
-                <p>{{item.artist}}</p>
-              </div>
-              <div class="vote col">
-                <button class="button button-outline button-balanced"> <i class="icon ion-chevron-up"></i></button>
-                <button class="button button-outline button-assertive"> <i class="icon ion-chevron-down"></i></button>
-              </div>
+    <div class="headerimg"><img src="img/starbucks.jpeg"/></div>
+    <div class="plist" ng-if="status.playing">
+      <ion-list>
+        <ion-item class="item-dark card item-button-right" ng-repeat="item in queue">
+          <div class="album row">
+            <div class="votemeter"><div ng-style="{ height: 100 / (item.upvotes + item.downvotes) * item.downvotes + '%' }"></div></div>
+            <div class="cover col"> <img src="{{item.track.cover.small}}"></div>
+            <div class="info col">
+              <h2>{{item.track.title}}</h2>
+              <p>{{item.track.artist}}</p>
             </div>
-          </ion-item>
-        </ion-list>
-      </div>
-    </ion-content>
-
-    <!-- now playing bar -->
-
-    <div class="np-wrap" ng-click="openModal()" ng-repat="nowplaying in [nowplayling]">
-      <div class="album row">
-        <div class="nowplaying-cover col"> <img src="{{nowplaying.cover}}"></div>
-        <div class="nowplaying-info col">
-          <h2>{{nowplaying.title}}</h2>
-          <p>{{nowplaying.artist}}</p>
-        </div>
-        <div class="playingicon"> <img src="img/pulse.svg"></div>
-      </div>
+            <div class="vote col">
+              <button class="button button-outline button-balanced" ng-click="upvote(item.track.id)"> <i class="icon ion-chevron-up"></i></button>
+              <button class="button button-outline button-assertive" ng-click="downvote(item.track.id)"> <i class="icon ion-chevron-down"></i></button>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
     </div>
+    <div ng-if="queue.length === 0" class="empty-queue" ng-click="handleSearchClick()">
+      Add more songs to the queue
+      <button class="button button-icon icon search-icon ion-plus-round"></button>
+    </div>
+  </ion-content>
+
+  <!-- now playing bar -->
+
+  <div class="nowplaying" ng-click="openModal()" ng-if="status.playing">
+    <div class="album row">
+      <div class="nowplaying-cover col"><img src="{{status.playing.track.cover.large}}"></div>
+      <div class="nowplaying-info col-50">
+        <h2>{{status.playing.track.title}}</h2>
+        <p>{{status.playing.track.artist}}</p>
+      </div>
+      <div class="progress-container col">
+        <div class="underbar"></div>
+        <div class="progress-bar" ng-style="{'width': progressPercent + '%'}"></div>
+      </div>
+      <div class="playingicon"><img src="img/pulse.svg"></div>
+    </div>
+  </div>
 </ion-view>

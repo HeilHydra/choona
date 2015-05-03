@@ -1,16 +1,19 @@
-<ion-side-menus class="menu-view" enable-menu-with-back-views="false" ng-controller="appCtrl">
+<ion-side-menus class="menu-view" enable-menu-with-back-views="true" ng-controller="appCtrl">
   <!-- Center content -->
   <ion-side-menu-content>
 
     <!-- Nav Bar -->
-      <ion-nav-bar class="bar-dark dark">
-        <ion-nav-buttons side="left">
-          <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-        </ion-nav-buttons>
-        <ion-nav-buttons side="right">
-          <button class="button button-icon icon ion-plus-round"></button>
-        </ion-nav-buttons>
-      </ion-nav-bar>
+    <ion-nav-bar class="bar-dark dark">
+      <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+      </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+        <div class="search-container" ng-show="showSearchInput">
+          <input class="search-input" id="search-input" type="text" ng-model="search.text" ng-model-options="{ debounce: {'default': 500} }" ng-change="handleSearch()" placeholder="Song, artist, album..." />
+        </div>
+        <button ng-attr-class="{{iconClass}}" ng-click="handleSearchClick()"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
 
     <!-- content goes here -->
     <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
@@ -39,14 +42,14 @@
       </div>
     </ion-header-bar>
 
-      <!-- List of menu items -->
-      <ion-content class="dark choona-menu">
-        <ion-list>
-          <ion-item nav-clear menu-close href="#/app/playlist" class="item-dark"><img class="play"></img> Playlist </ion-item>
-          <ion-item nav-clear menu-close href="#/app/activity" class="item-dark"><img class="activity"></img> Activity <span class="badge badge-assertive">20</span></ion-item>
-          <ion-item nav-clear menu-close href="#/app/history" class="item-dark"><img class="history"></img> History </ion-item>
-          <ion-item nav-clear menu-close href="#/app/settings" class="item-dark"><img class="settings"></img> Settings </ion-item>
-        </ion-list>
-      </ion-content>
+    <!-- List of menu items -->
+    <ion-content class="dark choona-menu">
+      <ion-list>
+        <ion-item nav-clear menu-close href="#/app/playlist" class="item-dark"><img class="play"></img> Playlist </ion-item>
+        <ion-item nav-clear menu-close href="#/app/activity" class="item-dark"><img class="activity"></img> Activity <span class="badge badge-assertive">20</span></ion-item>
+        <ion-item nav-clear menu-close href="#/app/history" class="item-dark"><img class="history"></img> History </ion-item>
+        <ion-item nav-clear menu-close href="#/app/settings" class="item-dark"><img class="settings"></img> Settings </ion-item>
+      </ion-list>
+    </ion-content>
   </ion-side-menu>
 </ion-side-menus>

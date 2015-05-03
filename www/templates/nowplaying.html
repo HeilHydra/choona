@@ -1,22 +1,22 @@
 <div class="modal nowplaying-modal">
-      <ion-content class="nowplaying-view" scroll="false">
-        <div class="cover-full">
-        <button class="button button-clear button-light" ng-click="closeModal()"><i class="icon ion-close"></i></button>
-        <button class="button round-overlay-button"> <i class="icon ion-android-share-alt"></i></button>
-      </div>
+  <ion-content class="nowplaying-view" scroll="false">
+    <div class="cover-full" ng-style="{ 'background-image': 'url(' + status.playing.track.cover.large + ')' }">
+      <button class="button button-clear button-light" ng-click="closeModal()"><i class="icon ion-close"></i></button>
+      <button class="button round-overlay-button"><i class="icon ion-android-share-alt"></i></button>
+    </div>
 
-        <div class="nowplaying-info">
-          <h2>Pretty Hate Machine</h2>
-          <p>Nine Inch Nails</p>
+    <div class="song-info">
+      <div class="song-title">
+        <h2>{{status.playing.track.title}}</h2>
+        <p>{{status.playing.track.artist}}</p>
+      </div>
+      <div class="elapsed">{{progressTime.format("m:ss")}}</div>
+      <div class="remaining">{{"-" + timeRemaining.format("m:ss")}}</div>
+      <div class="scrubber">
+        <div class="progress" ng-style="{ 'width': progressPercent + '%' }">
+          <div class="circle"></div>
         </div>
-        <div class="song-time row">
-          <div class="elapsed col">1:00</div>
-          <div class="remaining col">-3:00</div>
-        </div>
-        <div class="scrubber">
-          <div class="progress">
-            <div class="circle"></div>
-          </div>
-        </div>
-      </ion-content>
+      </div>
+    </div>
+  </ion-content>
 </div>

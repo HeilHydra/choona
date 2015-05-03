@@ -10,6 +10,24 @@
     text-align: center;
   }
 
+  .search-container {
+    position: fixed;
+    right: 80px;
+    left: 80px;
+    top: 7px;
+    height: 30px;
+  }
+
+  .search-input {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(254, 103, 24, 0.7);
+    width: 100%;
+    height: 100%;
+  }
+
   .choona-logo{
     margin: 0 auto;
     content: url("../img/choona-animated.svg");
