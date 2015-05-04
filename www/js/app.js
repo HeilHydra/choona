@@ -120,7 +120,48 @@ angular.module('choona', [
     });
   })
 
-  .run(function($ionicPlatform, auth, $rootScope, jwtHelper, store, $state, socket) {
+  .factory('webPlayer', function () {
+
+    var AudioContext = window.AudioContext || window.webkitAudioContext;
+    var context = new AudioContext();
+    var nextTime = 0;
+    var audioStack = [];
+
+    function scheduleBuffers() {
+      while (audioStack.length) {
+        var data = audioStack.shift();
+        var int16Arr = new Int16Array(data);
+        
+        var audio = [];
+
+        for (var i = 0; i < int16Arr.length; i++) {
+          audio[i] = int16Arr[i] > 0 ? int16Arr[i] / 32767 : int16Arr[i] / 32768;
+        }
+
+        var source = context.createBufferSource();
+        var audioBuffer = context.createBuffer(2, audio.length, 88200);
+        audioBuffer.getChannelData(0).set(audio);
+        source.buffer = audioBuffer;
+        source.connect(context.destination);
+        if (nextTime === 0) {
+          nextTime = context.currentTime + 0.1; // 50ms buffer time
+        }
+        source.start(nextTime);
+        nextTime += source.buffer.duration;
+      }
+    }
+
+    return {
+      queue: function (data) {
+        audioStack.push(data);
+        if (audioStack.length > 10) {
+          scheduleBuffers();
+        }
+      }
+    };
+  })
+
+  .run(function($ionicPlatform, auth, $rootScope, jwtHelper, store, $state, socket, webPlayer) {
     $ionicPlatform.ready(function () {
       if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -208,14 +249,15 @@ angular.module('choona', [
       $rootScope.status.position = 0;
     });
 
-    socket.on('playlist:data', function () {
-      console.log('I GOT DATA');
+    socket.on('playlist:data', function (data) {
+      webPlayer.queue(data);
     });
 
     socket.on('playlist:init', function (data) {
       $rootScope.queue = data.queue;
       $rootScope.status = data.status;
       $state.go('app.playlist');
+      socket.emit('playlist:stream:start');
     });
 
     socket.on('authenticated', function () {
