@@ -4,7 +4,9 @@ angular.module('choona', [
   'auth0',
   'angular-storage',
   'angular-jwt',
-  'btford.socket-io'])
+  'btford.socket-io',
+  'ngCordova',
+  'toastr'])
 
   .config(function($stateProvider, $urlRouterProvider, authProvider) {
 
@@ -120,6 +122,16 @@ angular.module('choona', [
     });
   })
 
+  .factory('toaster', function toasterFactory($cordovaToast, toastr) {
+    return function toaster(message) {
+      if (window.cordova) {
+        $cordovaToast.show(message, 'short', 'bottom');
+      } else {
+        toastr.success(message);
+      }
+    };
+  })
+
   .run(function($ionicPlatform, auth, $rootScope, jwtHelper, store, $state, socket) {
     $ionicPlatform.ready(function () {
       if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -171,8 +183,8 @@ angular.module('choona', [
       position: 0
     };
     $rootScope.progressPercent = 0;
-    $rootScope.progressTime = moment.duration(0, "seconds");
-    $rootScope.timeRemaining = moment.duration(0, "seconds");
+    $rootScope.progressTime = moment.duration(0, 'seconds');
+    $rootScope.timeRemaining = moment.duration(0, 'seconds');
 
     function updateNowPlaying() {
       var status = $rootScope.status;

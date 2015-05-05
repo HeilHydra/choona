@@ -68,11 +68,12 @@ angular.module('choona.controllers', [])
     };
   })
 
-  .controller('searchCtrl', function ($scope, socket) {
-    $scope.addTrack = function (trackId) {
-      socket.emit('playlist:add', trackId);
+  .controller('searchCtrl', function ($scope, socket, toaster) {
+    $scope.addTrack = function (track) {
+      toaster("'" + track.title + "' added to queue");
+      socket.emit('playlist:add', track.id);
       $scope.searchResults = $scope.searchResults.filter(function (result) {
-        return result.id !== trackId;
+        return result.id !== track.id;
       });
     };
     setTimeout(function () {
@@ -109,7 +110,7 @@ angular.module('choona.controllers', [])
     }
   })
 
-  .controller('playlistCtrl', function ($scope, $ionicModal, socket) {
+  .controller('playlistCtrl', function ($scope, $ionicModal, socket, toaster) {
     $ionicModal.fromTemplateUrl('templates/nowplaying.html', {
       scope: $scope,
       animation: 'slide-in-up'
@@ -125,12 +126,14 @@ angular.module('choona.controllers', [])
       $scope.modal.hide();
     };
 
-    $scope.upvote = function (trackId) {
-      socket.emit("playlist:upvote", trackId);
+    $scope.upvote = function (track) {
+      toaster("Upvoted '" + track.title + "'");
+      socket.emit("playlist:upvote", track.id);
     };
 
-    $scope.downvote = function (trackId) {
-      socket.emit("playlist:downvote", trackId);
+    $scope.downvote = function (track) {
+      toaster("Downvoted '" + track.title + "'");
+      socket.emit("playlist:downvote", track.id);
     };
 
     $scope.$on('queue-empty', function () {
