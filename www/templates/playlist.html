@@ -6,7 +6,7 @@
       <ion-list>
         <ion-item class="item-dark card item-button-right" ng-repeat="item in queue">
           <div class="album row">
-            <div class="votemeter"><div ng-style="{ height: 100 / (item.upvotes + item.downvotes) * item.downvotes + '%' }"></div></div>
+            <div class="votemeter"><div ng-style="{ height: 100 / (item.upvotes.length + item.downvotes.length) * item.downvotes.length + '%' }"></div></div>
             <div class="cover col"><img src="{{item.track.cover.small}}"></div>
             <div class="info col">
               <h2>{{item.track.title}}</h2>

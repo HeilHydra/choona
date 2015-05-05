@@ -127,13 +127,23 @@ angular.module('choona.controllers', [])
     };
 
     $scope.upvote = function (track) {
-      toaster("Upvoted '" + track.title + "'");
-      socket.emit("playlist:upvote", track.id);
+      socket.emit("playlist:upvote", track.id, function (success) {
+        if (success) {
+          toaster("Upvoted '" + track.title + "'");
+        } else {
+          toaster("You have already upvoted '" + track.title + "'");
+        }
+      });
     };
 
     $scope.downvote = function (track) {
-      toaster("Downvoted '" + track.title + "'");
-      socket.emit("playlist:downvote", track.id);
+      socket.emit("playlist:downvote", track.id, function (success) {
+        if (success) {
+          toaster("Downvoted '" + track.title + "'");
+        } else {
+          toaster("You have already downvoted '" + track.title + "'");
+        }
+      });
     };
 
     $scope.$on('queue-empty', function () {
