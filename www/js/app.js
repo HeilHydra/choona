@@ -192,6 +192,11 @@ angular.module('choona', [
 
     setInterval(updateNowPlaying, 1000);
 
+    socket.on('reconnect', function () {
+      auth.isAuthenticated = false;
+      $state.go('login');
+    });
+
     socket.on('playlist:empty', function () {
       $rootScope.queue = [];
       $rootScope.status.playing = null;
