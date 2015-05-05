@@ -58,6 +58,16 @@ angular.module('choona.controllers', [])
     }
   })
 
+  .controller('settingsCtrl', function ($scope, auth, store, $state) {
+    $scope.doLogout = function () {
+      auth.signout();
+      store.remove('token');
+      store.remove('profile');
+      store.remove('refreshToken');
+      $state.go('login');
+    };
+  })
+
   .controller('searchCtrl', function ($scope, socket) {
     $scope.addTrack = function (trackId) {
       socket.emit('playlist:add', trackId);

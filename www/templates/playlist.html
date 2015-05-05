@@ -1,13 +1,13 @@
 <ion-view class="playlist-view" ng-controller="playlistCtrl" >
   <ion-content class="dark">
 
-    <div class="headerimg"><img src="img/starbucks.jpeg"/></div>
+    <div class="headerimg"></div>
     <div class="plist" ng-if="status.playing">
       <ion-list>
         <ion-item class="item-dark card item-button-right" ng-repeat="item in queue">
           <div class="album row">
             <div class="votemeter"><div ng-style="{ height: 100 / (item.upvotes + item.downvotes) * item.downvotes + '%' }"></div></div>
-            <div class="cover col"> <img src="{{item.track.cover.small}}"></div>
+            <div class="cover col"><img src="{{item.track.cover.small}}"></div>
             <div class="info col">
               <h2>{{item.track.title}}</h2>
               <p>{{item.track.artist}}</p>

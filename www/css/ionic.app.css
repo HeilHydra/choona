@@ -7670,8 +7670,14 @@ a.button {
     background-color: #191919; }
   .playlist-view h2, .playlist-view p {
     color: #ffffff; }
-  .playlist-view .headerimg img {
-    width: 100%; }
+  .playlist-view .headerimg {
+    width: 100%;
+    height: 250px;
+    background-image: url("../img/starbucks.png");
+    background-size: cover;
+    background-position: top center; }
+  .playlist-view .list {
+    padding-bottom: 68px; }
   .playlist-view .card {
     box-shadow: 0 0px 2px rgba(254, 103, 24, 0.5);
     margin: 10px 0px; }
@@ -8036,6 +8042,8 @@ a.button {
 .settings-view .toggle.toggle-assertive input:checked + .track {
   border-color: #fe6718;
   background-color: #fe6718; }
+.settings-view .logout {
+  cursor: pointer; }
 
 .intro-view .slider-pager {
   top: 0;
