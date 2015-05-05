@@ -8171,7 +8171,8 @@ a.button {
     background: none;
     box-shadow: none;
     -webkit-box-shadow: none;
-    color: white;
+    color: white; }
+  .login-view #a0-lock {
     transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
