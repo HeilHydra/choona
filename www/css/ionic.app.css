@@ -7864,19 +7864,12 @@ a.button {
   width: 100%;
   margin: 0 auto;
   text-align: center; }
-.nowplaying-view .nowplaying-cover img {
-  min-width: 200px;
-  min-height: 200px;
-  width: 80%;
-  height: 80%;
-  border-radius: 500px;
-  -webkit-border-radius: 500px;
-  -moz-border-radius: 500px; }
 .nowplaying-view .close-playlist {
   float: right; }
 .nowplaying-view .cover-full {
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   height: 50%;
   width: 100%;
   position: relative; }

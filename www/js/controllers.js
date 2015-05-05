@@ -29,6 +29,10 @@ angular.module('choona.controllers', [])
         var className = 'button button-icon icon search-icon ';
         className += show ? 'ion-minus-round' : 'ion-plus-round';
         $scope.iconClass = className;
+        $scope.searchResults = [];
+        $scope.searchText = '';
+        $scope.searching = false;
+        $scope.search.text = '';
       }
     });
 
