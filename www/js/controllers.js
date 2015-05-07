@@ -163,14 +163,14 @@ angular.module('choona.controllers', [])
 
     // TODO: sort dynamic time out to text e.g. 16:10 ==> 10 minutes ago
     $scope.activities = [
-      { profile: 'img/profile.png', name: 'Jay Vagharia', title: 'Cotton Eye Joe', location: 'Starbucks', message: '#ballin', socialtype:'facebook', time: 'Just now' },
-      { profile: 'img/profile.png', name: 'Simon Kerr', title: 'Barbie Girl', location: 'Costa', message: '#imabarbiegirlinabarbieworld', socialtype:'twitter', time: '10 minutes ago' },
-      { profile: 'img/profile.png', name: 'Oliver Woodings', title: 'I\'m on a boat!', location: 'Starbucks', message: '#lonelyisland #imonaboat', socialtype: 'googleplus', time: '20 min' }
+      { profile: 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xft1/v/t1.0-1/c0.0.160.160/p160x160/10268412_10152192918496551_5637849843116539914_n.jpg?oh=f61c3ec2f4069ab1993b047b0c6fb175&oe=55D9025A&__gda__=1440872769_18712938cbce3b08c27ca0278e58e995', name: 'Jay Vagharia', title: 'Cotton Eye Joe', location: 'Starbucks', message: '#ballin', socialtype:'facebook', time: 'Seconds ago' },
+      { profile: 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.160.160/p160x160/10395805_935440563133716_2533308118886442821_n.jpg?oh=ac7c02e2a73394e5bda64ae9b700cc5a&oe=55C14853&__gda__=1438852036_9ee41e5fe12556d1f7aee8955e2be094', name: 'Simon Kerr', title: 'Barbie Girl', location: 'Costa', message: '#imabarbiegirlinabarbieworld', socialtype:'twitter', time: '10 minutes ago' },
+      { profile: 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p160x160/11000561_10153196675663809_244153614117834703_n.jpg?oh=2035e59b997bf1e14835061a69767fdc&oe=55BF6DBE&__gda__=1439840680_8855e9ed3efde60c3c90449bde31fb59', name: 'Oliver Woodings', title: 'I\'m on a boat!', location: 'Starbucks', message: '#lonelyisland #imonaboat', socialtype: 'googleplus', time: '2 hours ago' }
     ];
 
   })
 
-  .controller('historyCtrl', function($scope) {
+  .controller('historyCtrl', function ($scope) {
     $scope.visits = [
       { profile: 'img/starbucks.png', name: 'Starbucks', location: 'Leicester', time: 'Today' },
       { profile: 'img/starbucks.png', name: 'Costa', location: 'Loughborough', time: '2 days ago' },

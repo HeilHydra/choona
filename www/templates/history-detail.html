@@ -1,27 +1,15 @@
 <ion-view class="history-detail-view">
     <ion-content class="dark">
       <ion-list>
-        <ion-item class="item-dark card item-button-right">
+        <ion-item class="item-dark card item-button-right" ng-repeat="(ts, track) in history">
           <div class="album row">
-            <div class="cover col"> <img src="img/cover.jpg"></div>
+            <div class="cover col"><img src="{{track.cover.small}}"></div>
             <div class="info col">
-              <h2>Pretty Hate Machine</h2>
-              <p>Nine Inch Nails</p>
+              <h2>{{track.title}}</h2>
+              <p>{{track.artist}}</p>
             </div>
             <div class="timestamp col">
-              <span class="bottom"> Played at 11:00 </span>
-            </div>
-          </div>
-        </ion-item>
-        <ion-item class="item-dark card item-button-right">
-          <div class="album row">
-            <div class="cover col"> <img src="img/cover.jpg"></div>
-            <div class="info col">
-              <h2>Pretty Hate Machine</h2>
-              <p>Nine Inch Nails</p>
-            </div>
-            <div class="timestamp col">
-              <span class="bottom"> Played at 11:03 </span>
+              <span class="bottom"> Played {{moment(ts).fromNow()}} </span>
             </div>
           </div>
         </ion-item>

@@ -186,6 +186,9 @@ angular.module('choona', [
     $rootScope.progressTime = moment.duration(0, 'seconds');
     $rootScope.timeRemaining = moment.duration(0, 'seconds');
 
+    $rootScope.history = store.get('history') || {};
+    $rootScope.moment = moment;
+
     function updateNowPlaying() {
       var status = $rootScope.status;
       status.position++;
@@ -223,6 +226,11 @@ angular.module('choona', [
     socket.on('playlist:playing', function (data) {
       $rootScope.status.playing = data;
       $rootScope.status.position = 0;
+
+      var history = store.get('history') || {};
+      history[Date.now()] = data.track;
+      $rootScope.history = history;
+      store.set('history', history);
     });
 
     socket.on('playlist:data', function () {
