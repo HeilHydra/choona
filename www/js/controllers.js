@@ -13,6 +13,7 @@ angular.module('choona.controllers', [])
     $scope.searchText = '';
     $scope.searching = false;
     $scope.searchResults = [];
+    $scope.showSearchIcon = true;
 
     $scope.handleSearchClick = function () {
       if (!$scope.showSearchInput) {
