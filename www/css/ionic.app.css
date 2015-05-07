@@ -7659,6 +7659,8 @@ a.button {
   /* Album info */
   /* Vote Buttons */
   /* Now playing Bar */ }
+  .playlist-view .scroll {
+    height: 100%; }
   .playlist-view .ion-android-arrow-down {
     color: #fe6718; }
   .playlist-view .text-pulling {
@@ -7795,8 +7797,13 @@ a.button {
   .playlist-view .empty-queue {
     color: white;
     text-align: center;
-    line-height: 200px;
-    font-size: 20px; }
+    font-size: 20px;
+    height: calc(100% - 250px - 71px);
+    display: table;
+    width: 100%; }
+    .playlist-view .empty-queue .empty-message {
+      display: table-cell;
+      vertical-align: middle; }
     .playlist-view .empty-queue .button {
       font-size: 30px;
       vertical-align: middle;

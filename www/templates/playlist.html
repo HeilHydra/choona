@@ -5,7 +5,7 @@
       <ion-slide style="background-image: url('img/starbucks.png')"></ion-slide>
       <ion-slide style="background: white url('img/campaign.jpg') no-repeat center; background-size: contain;"></ion-slide>
     </ion-slide-box>
-    <div class="plist" ng-if="status.playing">
+    <div class="plist" ng-if="status.queue.length > 0">
       <ion-list>
         <ion-item class="item-dark card item-button-right" ng-repeat="item in queue">
           <div class="album row">
@@ -23,9 +23,11 @@
         </ion-item>
       </ion-list>
     </div>
-    <div ng-if="queue.length === 0" class="empty-queue" ng-click="handleSearchClick()">
-      Add more songs to the queue
-      <button class="button button-icon icon search-icon ion-plus-round"></button>
+    <div ng-if="queue.length === 0" class="empty-queue">
+      <div class="empty-message" ng-click="handleSearchClick()">
+        Add more songs to the queue
+        <button class="button button-icon icon search-icon ion-plus-round"></button>
+      </div>
     </div>
   </ion-content>
 

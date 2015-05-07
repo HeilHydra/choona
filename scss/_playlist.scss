@@ -1,5 +1,9 @@
 .playlist-view {
 
+  .scroll {
+    height: 100%;
+  }
+
   /* Spinner and pull to refresh style */
 
   .ion-android-arrow-down{
@@ -233,8 +237,15 @@
   .empty-queue {
     color: white;
     text-align: center;
-    line-height: 200px;
     font-size: 20px;
+    height: calc(100% - 250px - 71px);
+    display: table;
+    width: 100%;
+
+    .empty-message {
+      display: table-cell;
+      vertical-align: middle;
+    }
 
     .button {
       font-size: 30px;
