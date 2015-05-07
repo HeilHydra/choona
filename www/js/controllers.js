@@ -34,6 +34,11 @@ angular.module('choona.controllers', [])
         $scope.searching = false;
         $scope.search.text = '';
       }
+      if (toState.name === "app.playlist" || toState.name === "app.search") {
+        $scope.showSearchIcon = true;
+      } else {
+        $scope.showSearchIcon = false;
+      }
     });
 
     $scope.handleSearch = function () {

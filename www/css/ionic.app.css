@@ -8008,9 +8008,6 @@ a.button {
   .history-detail-view .info {
     padding-left: 15px;
     font-size: 10px; }
-  .history-detail-view .info h2 {
-    word-wrap: break-word;
-    white-space: normal; }
   .history-detail-view .timestamp {
     font-size: 10px;
     text-align: right;

@@ -1,15 +1,15 @@
 <ion-view class="history-detail-view">
     <ion-content class="dark">
       <ion-list>
-        <ion-item class="item-dark card item-button-right" ng-repeat="(ts, track) in history">
+        <ion-item class="item-dark card item-button-right" ng-repeat="item in history">
           <div class="album row">
-            <div class="cover col"><img src="{{track.cover.small}}"></div>
+            <div class="cover col"><img src="{{item.track.cover.small}}"></div>
             <div class="info col">
-              <h2>{{track.title}}</h2>
-              <p>{{track.artist}}</p>
+              <h2>{{item.track.title}}</h2>
+              <p>{{item.track.artist}}</p>
             </div>
             <div class="timestamp col">
-              <span class="bottom"> Played {{moment(ts).fromNow()}} </span>
+              <span class="bottom"> Played {{fromNow(item.ts)}} </span>
             </div>
           </div>
         </ion-item>
