@@ -172,9 +172,9 @@ angular.module('choona.controllers', [])
 
   .controller('historyCtrl', function($scope) {
     $scope.visits = [
-      { profile: 'img/starbucks.jpeg', name: 'Starbucks', location: 'Leicester', time: 'Today' },
-      { profile: 'img/starbucks.jpeg', name: 'Costa', location: 'Loughborough', time: '2 days ago' },
-      { profile: 'img/starbucks.jpeg', name: 'Starbucks', location: 'Leicester', time: '3 days ago' },
-      { profile: 'img/starbucks.jpeg', name: 'Starbucks', location: 'Loughborough', time: 'A week ago' }
+      { profile: 'img/starbucks.png', name: 'Starbucks', location: 'Leicester', time: 'Today' },
+      { profile: 'img/starbucks.png', name: 'Costa', location: 'Loughborough', time: '2 days ago' },
+      { profile: 'img/starbucks.png', name: 'Starbucks', location: 'Leicester', time: '3 days ago' },
+      { profile: 'img/starbucks.png', name: 'Starbucks', location: 'Loughborough', time: 'A week ago' }
     ];
   });
