@@ -234,7 +234,7 @@ angular.module('choona', [
         ts: Date.now(),
         track: data.track
       };
-      history = history.unshift(historyItem);
+      history.unshift(historyItem);
       $rootScope.history = history;
       store.set('history', history);
     });
